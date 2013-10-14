@@ -14,6 +14,7 @@ window.Arrow = (function(window, document, undefined) {
         browser,
         browserVersion;
 
+    //determine browser type and browser version
     (function() {
         var ua = navigator.userAgent,
             N = navigator.appName,
@@ -25,6 +26,18 @@ window.Arrow = (function(window, document, undefined) {
         browserVersion = M[1];
     })();
 
+    var _caculateArrowPosition = function() {
+
+    };
+
+    var _injectArrow = function() {
+
+    };
+
+    var _applyArrowStyles = function() {
+
+    };
+
     var show = function() {
 
     };
@@ -34,7 +47,7 @@ window.Arrow = (function(window, document, undefined) {
     };
 
     /** 
-     * Public Functions
+     * Expose Public Data and Functions
      */
 
     Arrow._version = version;

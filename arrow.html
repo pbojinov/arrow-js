@@ -38,10 +38,7 @@
             var x = setInterval(function() {
                 i += 0.1;
                 ieI += 10;
-                //IE just display it without fading in
                 if (arrow.filters) {
-                    //arrow.filters.item(0).opacity = 100;
-                    //arrow.style.display = 'inline-block'
                     arrow.filters.item("DXImageTransform.Microsoft.Alpha").opacity = ieI; 
                 } else {
                     arrow.style.opacity = i;
