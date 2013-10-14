@@ -1,12 +1,58 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>Arrow Test</title>
+    <meta charset="utf-8">
+    <title>Arrow Test</title>
+
+    <style type="text/css">
+    #arrow-chrome {
+        position:absolute;
+        bottom:10px;
+        display: none;
+        left:20px;
+        height:309px;
+        width:186px;
+        opacity: 0;
+        display:inline-block;
+        background:url(http://cdn.mediafire.com/images/backgrounds/download/dlpointers/arrow_down.png) 0 0 repeat;
+        filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0) progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://cdn.mediafire.com/images/backgrounds/download/dlpointers/arrow_down.png', sizingMethod='scale');
+    }
+    </style>
 </head>
+
 <body>
-<script>
-	
-</script>
+
+    <button type="button" id="download">Download</button>
+    <div id="arrow-chrome">
+        <span></span>
+    </div>
+
+    <script>
+    (function() {
+        document.getElementById('download').onclick = function() {
+            var arrow = document.getElementById('arrow-chrome');
+            arrow.style.display = 'block';
+            var i = 0.0,
+            	ieI = 0; //need to use whole numbers for IE filter
+            var x = setInterval(function() {
+                i += 0.1;
+                ieI += 10;
+                //IE just display it without fading in
+                if (arrow.filters) {
+                    //arrow.filters.item(0).opacity = 100;
+                    //arrow.style.display = 'inline-block'
+                    arrow.filters.item("DXImageTransform.Microsoft.Alpha").opacity = ieI; 
+                } else {
+                    arrow.style.opacity = i;
+                }
+            }, 50);
+            setTimeout(function() {
+                clearInterval(x);
+            }, 500);
+        }
+    })();
+    </script>
 </body>
+
 </html>
