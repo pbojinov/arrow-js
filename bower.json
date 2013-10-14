@@ -1,0 +1,22 @@
+{
+  "name": "yourlibrary",
+  "version": "0.0.1",
+  "ignore": [
+    "lib",
+    "test",
+    "spec",
+    "src",
+    "node_modules",
+    "Gruntfile.js",
+    "SpecRunner.html",
+    "package.json",
+    "bower.json",
+    ".travis.yml",
+    ".gitignore"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "jasmine": "~1.3.1"
+  }
+}
