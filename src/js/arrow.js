@@ -12,7 +12,11 @@ window.Arrow = (function(window, document, undefined) {
     var version = '0.1.0',
         Arrow = {},
         browser,
-        browserVersion;
+        browserVersion,
+        arrowColor = 'orange';
+
+    //http://storage.conduit.com/arrowjs/arrow_orange.png
+    //http://storage.conduit.com/arrowjs/arrow_green.png
 
     //determine browser type and browser version
     (function() {
