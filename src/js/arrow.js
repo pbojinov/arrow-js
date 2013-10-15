@@ -11,9 +11,10 @@ window.Arrow = (function(window, document, undefined) {
 
     var version = '0.1.0',
         Arrow = {},
-        browser,
-        browserVersion,
-        arrowColor = 'orange';
+        docBody = document.body;
+    browser,
+    browserVersion,
+    arrowColor = 'orange';
 
     //http://storage.conduit.com/arrowjs/arrow_orange.png
     //http://storage.conduit.com/arrowjs/arrow_green.png
@@ -30,81 +31,175 @@ window.Arrow = (function(window, document, undefined) {
         browserVersion = M[1];
     })();
 
-
     /**
      * Apply modern browser style then browser specific styles to arrow
      */
 
+    var _increaseOpacity = function() {
+        var arrow = document.getElementById('arrow-' + browser);
+        arrow.style.display = 'block';
+        var i = 0.0,
+            ieI = 0; //need to use whole numbers for IE filter
+        var x = setInterval(function() {
+            i += 0.1;
+            ieI += 10;
+            if (arrow.filters) {
+                arrow.filters.item("DXImageTransform.Microsoft.Alpha").opacity = ieI;
+            } else {
+                arrow.style.opacity = i;
+            }
+        }, 50);
+        setTimeout(function() {
+            clearInterval(x);
+        }, 500);
+        // TODO use requestAnimationFrame instead
+        // see http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+    };
+
+    var _decreaseOpacity = function() {
+        var arrow = document.getElementById('arrow-' + browser);
+        arrow.style.display = 'block';
+        var i = 1.0,
+            ieI = 100; //need to use whole numbers for IE filter
+        var x = setInterval(function() {
+            i -= 0.1;
+            ieI -= 10;
+            if (arrow.filters) {
+                arrow.filters.item("DXImageTransform.Microsoft.Alpha").opacity = ieI;
+            } else {
+                arrow.style.opacity = i;
+            }
+        }, 50);
+        setTimeout(function() {
+            clearInterval(x);
+        }, 500);
+        // TODO use requestAnimationFrame instead
+        // see http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+    };
+
+    /*
+      node.style.webkitTransform = "";
+      node.style.MozTransform = "";
+      node.style.msTransform = "";
+      node.style.OTransform = "";
+      node.style.transform = "";
+    */
+
     //Always apply all modern browsers first, then vendor specific
     var _applyStyleModern = function(node) {
         node.style.position = 'absolute';
+        //TODO
+        //top, left, right, bottom position?
+        node.style.zIndex = 999;
+        node.style.display = 'none';
+        node.style.height = '309px';
+        node.style.width = '186px';
+        node.style.opacity = 0;
+        node.style.backgroundImage = 'http://storage.conduit.com/arrowjs/arrow_orange.png';
+        node.style.backgroundRepeat = 'no-repeat';
+        node.style.backgroundPositionX = '0';
+        node.style.backgroundPositionY = '0';
     };
 
     //IE 8 styles
     var _applyStyleIE8 = function(node) {
-        node.style.position = 'absolute';
-    };  
+        node.style.bottom = '0px';
+        node.style.left = '20px';
+        node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = 'http://storage.conduit.com/arrowjs/arrow_orange.png';
+        node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').sizingMethod = 'scale';
+        node.filters.item("DXImageTransform.Microsoft.Alpha").opacity = 0;
+        node.filters.item("DXImageTransform.Microsoft.Matrix").M11 = 1;
+        node.filters.item("DXImageTransform.Microsoft.Matrix").M12 = 1.2246063538223773e-16;
+        node.filters.item("DXImageTransform.Microsoft.Matrix").M21 = -1.2246063538223773e-16;
+        node.filters.item("DXImageTransform.Microsoft.Matrix").M22 = -1;
+        node.filters.item("DXImageTransform.Microsoft.Matrix").SizingMethod = 'auto expand';
+    };
 
     //IE 9 styles
     var _applyStyleMs = function(node) {
-        node.style.position = 'absolute';
-    };      
-
-    //Firefox
-    var _applyStyleMoz= function(node) {
-        node.style.position = 'absolute';
+        node.style.top = '0px';
+        node.style.left = '90%';
     };
 
-    //Chrome, Opera
+    //Firefox 20+
+    var _applyStyleMoz = function(node) {
+        node.style.bottom = '50px';
+        node.style.left = '68%';
+        node.style.transform = 'rotateX(180deg) rotateY(180deg)';
+        node.style.MozTransform = 'rotateX(180deg) rotateY(180deg)';
+    };
+
+    //Chrome
     var _applyStyleWebkit = function(node) {
-        node.style.position = 'absolute';
+        node.style.bottom = '0px';
+        node.style.left = '20px';
     };
 
-    //Determine where to place arrow based on browser
-    var _caculateArrowPosition = function() {
+    var _setStyleType = function(node) {
 
-    };
-
-    var _getStyleType = function() {
-
+        var versionNum = parseInt(browserVersion, 10) || 0;
         if (browser === 'msie') {
-            if (browserVersion === '8.0') {
-
-            } else if ((browserVersion === '9.0') || (browserVersion === '10.0')) {
-
-            } else {
-                //we just throw it the full feature set
+            if (browserVersion === 8) {
+                _applyStyleIE8(node);
+            } else if ((browserVersion === 9) || (browserVersion === 10)) {
+                _applyStyleMs(node);
             }
-
         } else if (browser === 'chrome') {
-
+            _applyStyleWebkit(node);
         } else if (browser === 'firefox') {
-
-        } else {
-            //we just throw it the full feature set
+            //New download manager with arrow introducted in version 20
+            if (versionNum >= 20) {
+                _applyStyleMoz(node);
+            }
         }
-
+        //TODO windows safari download arrow?
     };
 
+    //Create div container for arrow and set its id to the browser type
     var _buildArrow = function() {
         var div = document.createElement('div');
-            div.setAttribute('id', 'arrow-' + browser);
+        div.setAttribute('id', 'arrow-' + browser);
+        return div;
     };
 
-    var _injectArrow = function() {
-
+    //Add node to the page, in this case our arrow
+    var _injectNode = function(node) {
+        docBody.appendChild(node);
     };
 
-    var _applyArrowStyles = function() {
-
+    var _isExist() = function() {
+        return !!(document.getElementById('arrow-' + browser));
     };
+
+    //should only be run once per Arrow instance
+    //in the future would be nice to manage multiple arrows
+    var _initArrow = function() {
+        var arrow = _buildArrow();
+        _setStyleType(arrow);
+        _injectNode();
+    };
+
+    _initArrow(); //fired when library loads
+
+
+    /**
+     * Public API
+     */
 
     var show = function() {
-
+        if (_isExist()) {
+            _increaseOpacity();
+        } else {
+            throw 'Invalid usage: arrow does not exist';
+        }
     };
 
     var hide = function() {
-
+        if (_isExist()) {
+            _decreaseOpacity();
+        } else {
+            throw 'Invalid usage: There are no arrows on the page.';
+        }
     };
 
     /** 
