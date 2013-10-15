@@ -30,11 +30,42 @@ window.Arrow = (function(window, document, undefined) {
         browserVersion = M[1];
     })();
 
-    var _ie8ArrowStyle = function() {
+
+    /**
+     * Apply modern browser style then browser specific styles to arrow
+     */
+
+    //Always apply all modern browsers first, then vendor specific
+    var _applyStyleModern = function(node) {
+        node.style.position = 'absolute';
+    };
+
+    //IE 8 styles
+    var _applyStyleIE8 = function(node) {
+        node.style.position = 'absolute';
+    };  
+
+    //IE 9 styles
+    var _applyStyleMs = function(node) {
+        node.style.position = 'absolute';
+    };      
+
+    //Firefox
+    var _applyStyleMoz= function(node) {
+        node.style.position = 'absolute';
+    };
+
+    //Chrome, Opera
+    var _applyStyleWebkit = function(node) {
+        node.style.position = 'absolute';
+    };
+
+    //Determine where to place arrow based on browser
+    var _caculateArrowPosition = function() {
 
     };
 
-    var _caculateArrowPosition = function() {
+    var _getStyleType = function() {
 
         if (browser === 'msie') {
             if (browserVersion === '8.0') {
@@ -53,6 +84,11 @@ window.Arrow = (function(window, document, undefined) {
             //we just throw it the full feature set
         }
 
+    };
+
+    var _buildArrow = function() {
+        var div = document.createElement('div');
+            div.setAttribute('id', 'arrow-' + browser);
     };
 
     var _injectArrow = function() {
