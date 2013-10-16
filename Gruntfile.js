@@ -22,7 +22,7 @@ module.exports = function(grunt) {
          " * Version: <%= pkg.version %>\n" +
          " *\n" +
          " * Author:  <%= pkg.author.name %>\n" +
-         " * Site:     <%= pkg.author.url %>\n" +
+         " * Site:    <%= pkg.author.url %>\n" +
          " * Contact: <%= pkg.author.email %>\n" +
          " *\n" +
          " *\n" +
