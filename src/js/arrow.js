@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 /**
  * ProjectName: ArrowJS
@@ -11,10 +11,9 @@ window.Arrow = (function(window, document, undefined) {
 
     var version = '0.1.0',
         Arrow = {},
-        docBody = document.body;
-    browser,
-    browserVersion,
-    arrowColor = 'orange';
+        docBody = document.body,
+        browser = '',
+        browserVersion = '';
 
     //http://storage.conduit.com/arrowjs/arrow_orange.png
     //http://storage.conduit.com/arrowjs/arrow_green.png
@@ -26,7 +25,9 @@ window.Arrow = (function(window, document, undefined) {
             tem,
             M = ua.match(/(opera|chrome|safari|firefox|msie|trident)\/?\s*([\d\.]+)/i) || [];
         M = M[2] ? [M[1], M[2]] : [N, navigator.appVersion, '-?'];
-        if (M && (tem = ua.match(/version\/([\.\d]+)/i)) != null) M[2] = tem[1];
+        if (M && (tem = ua.match(/version\/([\.\d]+)/i)) != null) {
+            M[2] = tem[1];
+        };
         browser = M[0].toLowerCase();
         browserVersion = M[1];
     })();
@@ -35,7 +36,7 @@ window.Arrow = (function(window, document, undefined) {
      * Apply modern browser style then browser specific styles to arrow
      */
 
-    var _increaseOpacity = function() {
+    function _increaseOpacity() {
         var arrow = document.getElementById('arrow-' + browser);
         arrow.style.display = 'block';
         var i = 0.0,
@@ -54,9 +55,9 @@ window.Arrow = (function(window, document, undefined) {
         }, 500);
         // TODO use requestAnimationFrame instead
         // see http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-    };
+    }
 
-    var _decreaseOpacity = function() {
+    function _decreaseOpacity() {
         var arrow = document.getElementById('arrow-' + browser);
         arrow.style.display = 'block';
         var i = 1.0,
@@ -75,7 +76,7 @@ window.Arrow = (function(window, document, undefined) {
         }, 500);
         // TODO use requestAnimationFrame instead
         // see http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-    };
+    }
 
     /*
       node.style.webkitTransform = "";
@@ -86,7 +87,7 @@ window.Arrow = (function(window, document, undefined) {
     */
 
     //Always apply all modern browsers first, then vendor specific
-    var _applyStyleModern = function(node) {
+    function _applyStyleModern (node) {
         node.style.position = 'absolute';
         //TODO
         //top, left, right, bottom position?
@@ -99,10 +100,10 @@ window.Arrow = (function(window, document, undefined) {
         node.style.backgroundRepeat = 'no-repeat';
         node.style.backgroundPositionX = '0';
         node.style.backgroundPositionY = '0';
-    };
+    }
 
     //IE 8 styles
-    var _applyStyleIE8 = function(node) {
+    function _applyStyleIE8(node) {
         node.style.bottom = '0px';
         node.style.left = '20px';
         node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = 'http://storage.conduit.com/arrowjs/arrow_orange.png';
@@ -113,29 +114,29 @@ window.Arrow = (function(window, document, undefined) {
         node.filters.item("DXImageTransform.Microsoft.Matrix").M21 = -1.2246063538223773e-16;
         node.filters.item("DXImageTransform.Microsoft.Matrix").M22 = -1;
         node.filters.item("DXImageTransform.Microsoft.Matrix").SizingMethod = 'auto expand';
-    };
+    }
 
     //IE 9 styles
     var _applyStyleMs = function(node) {
         node.style.top = '0px';
         node.style.left = '90%';
-    };
+    }
 
     //Firefox 20+
-    var _applyStyleMoz = function(node) {
+    function _applyStyleMoz(node) {
         node.style.bottom = '50px';
         node.style.left = '68%';
         node.style.transform = 'rotateX(180deg) rotateY(180deg)';
         node.style.MozTransform = 'rotateX(180deg) rotateY(180deg)';
-    };
+    }
 
     //Chrome
-    var _applyStyleWebkit = function(node) {
+    function _applyStyleWebkit(node) {
         node.style.bottom = '0px';
         node.style.left = '20px';
-    };
+    }
 
-    var _setStyleType = function(node) {
+    function _setStyleType(node) {
 
         var versionNum = parseInt(browserVersion, 10) || 0;
         _applyStyleModern(node); //add our basic styles then do vendor prefixes
@@ -158,28 +159,28 @@ window.Arrow = (function(window, document, undefined) {
     };
 
     //Create div container for arrow and set its id to the browser type
-    var _buildArrow = function() {
+    function _buildArrow() {
         var div = document.createElement('div');
         div.setAttribute('id', 'arrow-' + browser);
         return div;
-    };
+    }
 
     //Add node to the page, in this case our arrow
-    var _injectNode = function(node) {
+    function _injectNode(node) {
         docBody.appendChild(node);
     };
 
-    var _isExist() = function() {
+    function _isExist() {
         return !!(document.getElementById('arrow-' + browser));
-    };
+    }
 
     //should only be run once per Arrow instance
     //in the future would be nice to manage multiple arrows
-    var _initArrow = function() {
+    function _initArrow() {
         var arrow = _buildArrow();
         _setStyleType(arrow);
         _injectNode();
-    };
+    }
 
     _initArrow(); //fired when library loads
 
@@ -188,7 +189,7 @@ window.Arrow = (function(window, document, undefined) {
      * Public API
      */
 
-    var show = function() {
+    function show() {
         if (_isExist()) {
             _increaseOpacity();
         } else {
@@ -196,7 +197,7 @@ window.Arrow = (function(window, document, undefined) {
         }
     };
 
-    var hide = function() {
+    function hide() {
         if (_isExist()) {
             _decreaseOpacity();
         } else {

@@ -10,29 +10,31 @@
     "email": "chrisenytc@gmail.com"
   },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/chrisenytc/generator-library.git"
+    "type": "git",
+    "url": "https://github.com/chrisenytc/generator-library.git"
   },
   "keywords": [
-      "vpl",
-      "javascript",
-      "library"
+    "vpl",
+    "javascript",
+    "library"
   ],
   "bugs": {
-      "url": "https://github.com/chrisenytc/generator-library/issues"
+    "url": "https://github.com/chrisenytc/generator-library/issues"
   },
   "licenses": [
-      {
-          "type": "MIT",
-          "url": "https://github.com/chrisenytc/generator-library/blob/master/LICENSE"
-      }
+    {
+      "type": "MIT",
+      "url": "https://github.com/chrisenytc/generator-library/blob/master/LICENSE"
+    }
   ],
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "bower": "~1.1.2",
     "grunt-notify": "~0.2.7",
     "grunt-contrib-uglify": "~0.2.1",
+    "grunt-contrib-jshint": "~0.6.4",
     "matchdep": "~0.1.2"
   },
   "engines": {

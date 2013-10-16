@@ -31,6 +31,23 @@ module.exports = function(grunt) {
          " */\n" +
          "\n",
 
+         jshint: {
+            options: {
+                curly: true,
+                debug: true,
+                unused: true,
+                forin: true,
+                eqnull: true,
+                eqeqeq: true,
+                browser: true,
+                globals: {
+                    devel: true,
+                    jquery: false
+                }
+            },
+            all: ['src/js/arrow.js'] //'Apps/LifeAlly/js/update-<%= pkg.version %>.min.js'
+        },
+
         // Minify and Concat archives
         uglify: {
             options: {
@@ -53,13 +70,14 @@ module.exports = function(grunt) {
             }
           }
         }
-});
+    });
 
 
     // Register Taks
     // --------------------------
 
     // Observe changes, concatenate, minify and validate files
-    grunt.registerTask( "default", ["uglify", "notify:js" ]);
+    grunt.registerTask("default", ["uglify", "notify:js"]);
+    grunt.registerTask('dev', ['jshint'])
 
 };
