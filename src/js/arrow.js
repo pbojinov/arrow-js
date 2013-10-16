@@ -8,7 +8,7 @@
 /* Pass in (window, document, undefined) to have an unmodified version of the variable in our function scope */
 window.Arrow = (function (window, document, undefined) {
 
-    "use strict";
+    'use strict';
 
     var version = '0.1.0',
         Arrow = {},
@@ -58,7 +58,7 @@ window.Arrow = (function (window, document, undefined) {
             ieI += 10;
             if ((browser === 'msie') && (browserVersion <= 8)) {
                 if (arrow.filters) {
-                    arrow.filters.item("DXImageTransform.Microsoft.Alpha").opacity = ieI;
+                    arrow.filters.item('DXImageTransform.Microsoft.Alpha').opacity = ieI;
                 }
             } else {
                 arrow.style.opacity = i;
@@ -67,8 +67,7 @@ window.Arrow = (function (window, document, undefined) {
         setTimeout(function () {
             clearInterval(x);
         }, 600);
-        // TODO use requestAnimationFrame instead
-        // see http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+        // TODO use requestAnimationFrame - http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
     }
 
     /**
@@ -87,7 +86,7 @@ window.Arrow = (function (window, document, undefined) {
             ieI -= 10;
             if ((browser === 'msie') && (browserVersion <= 8)) {
                 if (arrow.filters) {
-                    arrow.filters.item("DXImageTransform.Microsoft.Alpha").opacity = ieI;
+                    arrow.filters.item('DXImageTransform.Microsoft.Alpha').opacity = ieI;
                 }
             } else {
                 arrow.style.opacity = i;
@@ -97,18 +96,17 @@ window.Arrow = (function (window, document, undefined) {
             clearInterval(x);
             arrow.style.display = 'none';
         }, 600);
-        // TODO use requestAnimationFrame instead
-        // see http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+        // TODO use requestAnimationFrame - http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
     }
 
     /*
-     * How to access vendor specific properties with js
+     * How to access vendor specific properties with JS
      *
-     * node.style.webkitTransform = "";
-     * node.style.MozTransform = "";
-     * node.style.msTransform = "";
-     * node.style.OTransform = "";
-     * node.style.transform = "";
+     * node.style.webkitTransform = '';
+     * node.style.MozTransform = '';
+     * node.style.msTransform = '';
+     * node.style.OTransform = '';
+     * node.style.transform = '';
      */
 
     /**
@@ -142,10 +140,12 @@ window.Arrow = (function (window, document, undefined) {
         node.style.bottom = '0px';
         node.style.left = '20px';
 
-        //we never set the filter in the first place...so IE cannot find it
-        node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = 'http://storage.conduit.com/arrowjs/arrow_orange.png';
-        node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').sizingMethod = 'scale';
-        node.filters.item("DXImageTransform.Microsoft.Alpha").opacity = 0;
+        // Only one filter style can exist so we concatenate them to one line
+        var opacity = 'progid:DXImageTransform.Microsoft.Alpha(opacity=0) ',
+            imgSrc = 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://storage.conduit.com/arrowjs/arrow_orange.png", sizingMethod="scale") ',
+            rotation = 'progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=1.2246063538223773e-16, M21=-1.2246063538223773e-16, M22=-1, SizingMethod="auto expand") ';
+
+        node.style.filter = opacity + imgSrc + rotation;
 
         /*
          * CSS looks like this
@@ -157,13 +157,20 @@ window.Arrow = (function (window, document, undefined) {
          *    M22 = COS_THETA,
          *    sizingMethod = 'auto expand'
          * );
+         *
+         * ---
+         * How to access IE filters with JS
+         *
+         * node.filters.item('DXImageTransform.Microsoft.Alpha').opacity = 0;
+         * node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = 'http://storage.conduit.com/arrowjs/arrow_orange.png';
+         * node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').sizingMethod = 'scale';
+         * node.filters.item('DXImageTransform.Microsoft.Matrix').M11 = 1;
+         * node.filters.item('DXImageTransform.Microsoft.Matrix').M12 = 1.2246063538223773e-16;
+         * node.filters.item('DXImageTransform.Microsoft.Matrix').M21 = -1.2246063538223773e-16;
+         * node.filters.item('DXImageTransform.Microsoft.Matrix').M22 = -1;
+         * node.filters.item('DXImageTransform.Microsoft.Matrix').SizingMethod = 'auto expand';
+         *
          */
-
-        node.filters.item("DXImageTransform.Microsoft.Matrix").M11 = 1;
-        node.filters.item("DXImageTransform.Microsoft.Matrix").M12 = 1.2246063538223773e-16;
-        node.filters.item("DXImageTransform.Microsoft.Matrix").M21 = -1.2246063538223773e-16;
-        node.filters.item("DXImageTransform.Microsoft.Matrix").M22 = -1;
-        node.filters.item("DXImageTransform.Microsoft.Matrix").SizingMethod = 'auto expand';
     }
 
     /**
@@ -345,7 +352,8 @@ window.Arrow = (function (window, document, undefined) {
     function hide() {
         if (_isExist()) {
             _decreaseOpacity();
-        } else {
+        }
+        else {
             throw 'Invalid usage: There are no arrows on the page.';
         }
     }

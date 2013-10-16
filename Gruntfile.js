@@ -45,7 +45,7 @@ module.exports = function(grunt) {
                     jquery: false
                 }
             },
-            all: ['src/js/arrow.js', '<%= dirs.build %>/<%= pkg.title %>-<%= pkg.version %>.min.js']
+            all: ['src/js/arrow.js'] //, '<%= dirs.build %>/<%= pkg.title %>-<%= pkg.version %>.min.js']
         },
 
         // Minify and Concat archives
