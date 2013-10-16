@@ -133,7 +133,7 @@ window.Arrow = (function (window, document, undefined) {
 
     function _applyStyleMoz(node) {
         node.style.top = '0px';
-        node.style.left = '68%';
+        node.style.right = '40px';
         node.style.transform = 'rotateX(180deg) rotateY(180deg)';
         node.style.MozTransform = 'rotateX(180deg) rotateY(180deg)';
     }
