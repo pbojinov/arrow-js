@@ -11,7 +11,6 @@ window.Arrow = (function(window, document, undefined) {
 
     var version = '0.1.0',
         Arrow = {},
-        docBody = document.body,
         browser = '',
         browserVersion = '';
 
@@ -174,7 +173,7 @@ window.Arrow = (function(window, document, undefined) {
     //Add node to the page, in this case our arrow
 
     function _injectNode(node) {
-        docBody.appendChild(node);
+        document.body.appendChild(node);
     }
 
     function _isExist() {
@@ -187,11 +186,8 @@ window.Arrow = (function(window, document, undefined) {
     function _initArrow() {
         var arrow = _buildArrow();
         _setStyleType(arrow);
-        _injectNode();
+        _injectNode(arrow);
     }
-
-    _initArrow(); //fired when library loads
-
 
     /**
      * Public API
@@ -212,6 +208,8 @@ window.Arrow = (function(window, document, undefined) {
             throw 'Invalid usage: There are no arrows on the page.';
         }
     }
+
+    _initArrow(); //fired when library loads
 
     /** 
      * Expose Public Data and Functions
