@@ -13,7 +13,7 @@ window.Arrow = (function (window, document, undefined) {
         Arrow = {},
         arrowNode,
         browser = '',
-        browserVersion = '',
+        browserVersion = 0,
         visibleHeight = 0,
         visibleWidth = 0;
 
@@ -26,10 +26,10 @@ window.Arrow = (function (window, document, undefined) {
     (function () {
         var N = navigator.appName, ua = navigator.userAgent, tem;
         var M = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
-        if (M && (tem = ua.match(/version\/([\.\d]+)/i)) != null) M[2] = tem[1];
+        if (M && (tem = ua.match(/version\/([\.\d]+)/i)) != null) { M[2] = tem[1]; }
         M = M ? [M[1], M[2]] : [N, navigator.appVersion, '-?'];
         browser = M[0].toLowerCase();
-        browserVersion = M[1];
+        browserVersion = parseInt(M[1], 10) || 0;
     })();
 
     /**
@@ -148,8 +148,6 @@ window.Arrow = (function (window, document, undefined) {
     }
 
     function _setStyleType(node) {
-
-        var versionNum = parseInt(browserVersion, 10) || 0;
         _applyStyleModern(node); //add our basic styles then do vendor prefixes
 
         if (browser === 'msie') {
@@ -234,7 +232,7 @@ window.Arrow = (function (window, document, undefined) {
             visibleHeight = document.documentElement.clientHeight;
         }
 
-        if ((browser === 'msie') && (browserVersion === '9.0')) {
+        if ((browser === 'msie') && (browserVersion === 9)) {
             if (visibleWidth < 1005) {
                 arrowNode.style.bottom = '85px';
             } else if (visibleWidth > 1006) {

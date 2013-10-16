@@ -56,7 +56,7 @@ module.exports = function(grunt) {
             },
             dist: {
               files: {
-                  "<%= dirs.build %>/yourLibrary.min.js": "<%= dirs.js %>/yourLibrary.js"
+                  "<%= dirs.build %>/<%= pkg.title %>-<%= pkg.version %>.min.js": "<%= dirs.js %>/arrow.js"
               }
             }
         },
