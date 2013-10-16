@@ -5,6 +5,7 @@
  * Github: https: //github.com/chrisenytc/generator-library
  */
 
+/* Pass in (window, document, undefined) to have an unmodified version of the variable in our function scope */
 window.Arrow = (function (window, document, undefined) {
 
     "use strict";
@@ -17,25 +18,36 @@ window.Arrow = (function (window, document, undefined) {
         visibleHeight = 0,
         visibleWidth = 0;
 
-    //http://storage.conduit.com/arrowjs/arrow_orange.png
-    //http://storage.conduit.com/arrowjs/arrow_orange.gif
-    //http://storage.conduit.com/arrowjs/arrow_green.png
-    //http://storage.conduit.com/arrowjs/arrow_green.gif
+    /**
+     * Other available arrows to use. Planning on adding more colors
+     *
+     * http://storage.conduit.com/arrowjs/arrow_orange.png
+     * http://storage.conduit.com/arrowjs/arrow_orange.gif
+     * http://storage.conduit.com/arrowjs/arrow_green.png
+     * http://storage.conduit.com/arrowjs/arrow_green.gif
+     */
 
-    //determine browser type and browser version
+    /**
+     * Determine browser type and browser version
+     */
     (function () {
         var N = navigator.appName, ua = navigator.userAgent, tem;
         var M = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
-        if (M && (tem = ua.match(/version\/([\.\d]+)/i)) != null) { M[2] = tem[1]; }
+        if (M && (tem = ua.match(/version\/([\.\d]+)/i)) != null) {
+            M[2] = tem[1];
+        }
         M = M ? [M[1], M[2]] : [N, navigator.appVersion, '-?'];
         browser = M[0].toLowerCase();
-        browserVersion = parseInt(M[1], 10) || 0;
+        browserVersion = parseInt(M[1], 10);
     })();
 
     /**
-     * Apply modern browser style then browser specific styles to arrow
+     * Fade in the arrow
+     * Use DXImageTransform.Microsoft.Alpha for IE8
+     *
+     * @method _increaseOpacity
+     * @private
      */
-
     function _increaseOpacity() {
         var arrow = document.getElementById('arrow-' + browser);
         arrow.style.display = 'block';
@@ -59,6 +71,13 @@ window.Arrow = (function (window, document, undefined) {
         // see http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
     }
 
+    /**
+     * Fade out the arrow
+     * Use DXImageTransform.Microsoft.Alpha for IE8
+     *
+     * @method _decreaseOpacity
+     * @private
+     */
     function _decreaseOpacity() {
         var arrow = document.getElementById('arrow-' + browser);
         var i = 1.0,
@@ -83,19 +102,24 @@ window.Arrow = (function (window, document, undefined) {
     }
 
     /*
-     node.style.webkitTransform = "";
-     node.style.MozTransform = "";
-     node.style.msTransform = "";
-     node.style.OTransform = "";
-     node.style.transform = "";
+     * How to access vendor specific properties with js
+     *
+     * node.style.webkitTransform = "";
+     * node.style.MozTransform = "";
+     * node.style.msTransform = "";
+     * node.style.OTransform = "";
+     * node.style.transform = "";
      */
 
-    //Always apply all modern browsers first, then vendor specific
-
+    /**
+     * Apply modern browser style then browser specific styles to arrow
+     *
+     * @method _applyStyleModern
+     * @param node
+     * @private
+     */
     function _applyStyleModern(node) {
         node.style.position = 'absolute';
-        //TODO
-        //top, left, right, bottom position?
         node.style.zIndex = 999;
         node.style.display = 'none';
         node.style.height = '309px';
@@ -107,8 +131,13 @@ window.Arrow = (function (window, document, undefined) {
         node.style.backgroundPositionY = '0';
     }
 
-    //IE 8 styles
-
+    /**
+     * IE 8 specific styles.
+     *
+     * @method _applyStyleIE8
+     * @param node
+     * @private
+     */
     function _applyStyleIE8(node) {
         node.style.bottom = '0px';
         node.style.left = '20px';
@@ -117,6 +146,19 @@ window.Arrow = (function (window, document, undefined) {
         node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = 'http://storage.conduit.com/arrowjs/arrow_orange.png';
         node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').sizingMethod = 'scale';
         node.filters.item("DXImageTransform.Microsoft.Alpha").opacity = 0;
+
+        /*
+         * CSS looks like this
+         *
+         * filter: progid:DXImageTransform.Microsoft.Matrix(
+         *    M11 = COS_THETA,
+         *    M12 = -SIN_THETA,
+         *    M21 = SIN_THETA,
+         *    M22 = COS_THETA,
+         *    sizingMethod = 'auto expand'
+         * );
+         */
+
         node.filters.item("DXImageTransform.Microsoft.Matrix").M11 = 1;
         node.filters.item("DXImageTransform.Microsoft.Matrix").M12 = 1.2246063538223773e-16;
         node.filters.item("DXImageTransform.Microsoft.Matrix").M21 = -1.2246063538223773e-16;
@@ -124,15 +166,25 @@ window.Arrow = (function (window, document, undefined) {
         node.filters.item("DXImageTransform.Microsoft.Matrix").SizingMethod = 'auto expand';
     }
 
-    //IE 9 styles
-
+    /**
+     * IE 9 styles (positioning in this case since we need no rotations).
+     *
+     * @method _applyStyleMs
+     * @param node
+     * @private
+     */
     function _applyStyleMs(node) {
         node.style.bottom = '50px';
         node.style.left = '67%';
     }
 
-    //Firefox 20+
-
+    /**
+     * Firefox 20+ styles, 20+ is when new download manager was introduced.
+     *
+     * @method _applyStyleMoz
+     * @param node
+     * @private
+     */
     function _applyStyleMoz(node) {
         node.style.top = '0px';
         node.style.right = '40px';
@@ -140,35 +192,54 @@ window.Arrow = (function (window, document, undefined) {
         node.style.MozTransform = 'rotateX(180deg) rotateY(180deg)';
     }
 
-    //Chrome
-
+    /**
+     * Chrome's a simple one
+     * P.S. We don't care of Safari or Opera right now
+     *
+     * @method _applyStyleWebkit
+     * @param node
+     * @private
+     */
     function _applyStyleWebkit(node) {
         node.style.bottom = '0px';
         node.style.left = '20px';
     }
 
+    /**
+     * Apply vendor specific styles based on the browser and browser version.
+     *
+     * @method _setStyleType
+     * @param node
+     * @private
+     */
     function _setStyleType(node) {
-        _applyStyleModern(node); //add our basic styles then do vendor prefixes
+
+        //add our basic styles then do vendor prefixes
+        _applyStyleModern(node);
 
         if (browser === 'msie') {
-            if (versionNum === 8) {
+            if (browserVersion === 8) {
                 _applyStyleIE8(node);
-            } else if ((versionNum === 9) || (versionNum === 10)) {
+            } else if ((browserVersion === 9) || (browserVersion === 10)) {
                 _applyStyleMs(node);
             }
         } else if (browser === 'chrome') {
             _applyStyleWebkit(node);
         } else if (browser === 'firefox') {
             //New download manager with arrow introducted in version 20
-            if (versionNum >= 20) {
+            if (browserVersion >= 20) {
                 _applyStyleMoz(node);
             }
         }
-        //TODO windows safari download arrow?
     }
 
-    //Create div container for arrow and set its id to the browser type
-
+    /**
+     * Create arrow element and give it an id specific to the browser.
+     *
+     * @method _buildArrow
+     * @returns div {HTMLElement}
+     * @private
+     */
     function _buildArrow() {
         var div = document.createElement('div');
         div.setAttribute('id', 'arrow-' + browser);
@@ -176,52 +247,56 @@ window.Arrow = (function (window, document, undefined) {
         return div;
     }
 
-    //Add node to the page, in this case our arrow
-
+    /**
+     * Add HTML node to the page, in this case our arrow.
+     *
+     * @method _injectNode
+     * @param node
+     * @private
+     */
     function _injectNode(node) {
         document.body.appendChild(node);
     }
 
+    /**
+     * Does our arrow exist on the page?
+     *
+     * @returns {boolean}
+     * @private
+     */
     function _isExist() {
         return !!(document.getElementById('arrow-' + browser));
     }
 
-    //should only be run once per Arrow instance
-    //in the future would be nice to manage multiple arrows
-
+    /**
+     * Initialize our arrow internals
+     * ---
+     * Should only be run once per Arrow instance.
+     * In the future would be nice to manage multiple arrows.
+     *
+     * @method _initArrow
+     * @private
+     */
     function _initArrow() {
         var arrow = _buildArrow();
         _setStyleType(arrow);
         _calculateArrowPosition();
         _injectNode(arrow);
+        window.addEventListener('resize', _calculateArrowPosition);
     }
+
+    _initArrow(); //our constructor, fired when library loads
 
     /**
-     * Public API
+     * Calculate current visible height and width of the screen and stores them for library use.
+     * Used to make sure IE9 arrow is in the right place.
+     * ---
+     * !! Possible performance bottleneck for IE/other browser if something is constantly resizing the window.
+     *
+     * @method _calculateArrowPosition
+     * @private
      */
-
-    function show() {
-        if (_isExist()) {
-            _increaseOpacity();
-        } else {
-            throw 'Invalid usage: arrow does not exist';
-        }
-    }
-
-    function hide() {
-        if (_isExist()) {
-            _decreaseOpacity();
-        } else {
-            throw 'Invalid usage: There are no arrows on the page.';
-        }
-    }
-
-    _initArrow(); //fired when library loads
-
-    window.addEventListener('resize', _calculateArrowPosition);
-
-    //Make sure IE9 arrow is in the right place
-    function _calculateArrowPosition () {
+    function _calculateArrowPosition() {
         if (typeof( window.innerWidth ) === 'number') {
             //Non-IE
             visibleWidth = window.innerWidth;
@@ -238,6 +313,40 @@ window.Arrow = (function (window, document, undefined) {
             } else if (visibleWidth > 1006) {
                 arrowNode.style.bottom = '50px';
             }
+        }
+    }
+
+    /**
+     * Public API
+     */
+
+    /**
+     * Show the arrow.
+     * If it doesn't exist it will throw an exception
+     *
+     * @method show
+     * @public
+     */
+    function show() {
+        if (_isExist()) {
+            _increaseOpacity();
+        } else {
+            throw 'Invalid usage: arrow does not exist';
+        }
+    }
+
+    /**
+     * Hide the arrow
+     * If it doesn't exist it will throw an exception
+     *
+     * @method hide
+     * @public
+     */
+    function hide() {
+        if (_isExist()) {
+            _decreaseOpacity();
+        } else {
+            throw 'Invalid usage: There are no arrows on the page.';
         }
     }
 

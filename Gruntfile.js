@@ -45,13 +45,14 @@ module.exports = function(grunt) {
                     jquery: false
                 }
             },
-            all: ['src/js/arrow.js'] //'Apps/LifeAlly/js/update-<%= pkg.version %>.min.js'
+            all: ['src/js/arrow.js', '<%= dirs.build %>/<%= pkg.title %>-<%= pkg.version %>.min.js']
         },
 
         // Minify and Concat archives
         uglify: {
             options: {
                 mangle: false,
+                report: 'min',
                 banner: "<%= banner %>"
             },
             dist: {
