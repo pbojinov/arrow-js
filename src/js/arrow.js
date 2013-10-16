@@ -148,9 +148,9 @@ window.Arrow = (function (window, document, undefined) {
         _applyStyleModern(node); //add our basic styles then do vendor prefixes
 
         if (browser === 'msie') {
-            if (browserVersion === 8) {
+            if (versionNum === 8) {
                 _applyStyleIE8(node);
-            } else if ((browserVersion === 9) || (browserVersion === 10)) {
+            } else if ((versionNum === 9) || (versionNum === 10)) {
                 _applyStyleMs(node);
             }
         } else if (browser === 'chrome') {
@@ -218,7 +218,8 @@ window.Arrow = (function (window, document, undefined) {
      */
 
     Arrow._version = version;
-    Arrow._browser = [browser, browserVersion];
+    Arrow._browser = browser,
+    Arrow._browserVersion = browserVersion;
     Arrow.show = show;
     Arrow.hide = hide;
 
