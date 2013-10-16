@@ -5,7 +5,7 @@
  * Github: https: //github.com/chrisenytc/generator-library
  */
 
-window.Arrow = (function(window, document, undefined) {
+window.Arrow = (function (window, document, undefined) {
 
     "use strict";
 
@@ -15,26 +15,22 @@ window.Arrow = (function(window, document, undefined) {
         browserVersion = '';
 
     //http://storage.conduit.com/arrowjs/arrow_orange.png
-    //http://storage.conduit.com/arrowjs/arrow_orange.gif 
+    //http://storage.conduit.com/arrowjs/arrow_orange.gif
     //http://storage.conduit.com/arrowjs/arrow_green.png
     //http://storage.conduit.com/arrowjs/arrow_green.gif
 
     //determine browser type and browser version
-    (function() {
-        var ua = navigator.userAgent,
-            N = navigator.appName,
-            tem,
-            M = ua.match(/(opera|chrome|safari|firefox|msie|trident)\/?\s*([\d\.]+)/i) || [];
-        M = M[2] ? [M[1], M[2]] : [N, navigator.appVersion, '-?'];
-        if (M && (tem = ua.match(/version\/([\.\d]+)/i)) != null) {
-            M[2] = tem[1];
-        }
+    (function () {
+        var N=navigator.appName, ua=navigator.userAgent, tem;
+        var M=ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+        if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
+        M=M? [M[1], M[2]]: [N, navigator.appVersion, '-?'];
         browser = M[0].toLowerCase();
         browserVersion = M[1];
     })();
 
     /**
-     * Apply modern browser style then browser specific styles to arrow
+     * Apply modern browser style then browser specific styles to arrowv
      */
 
     function _increaseOpacity() {
@@ -42,16 +38,18 @@ window.Arrow = (function(window, document, undefined) {
         arrow.style.display = 'block';
         var i = 0.0,
             ieI = 0; //need to use whole numbers for IE filter
-        var x = setInterval(function() {
+        var x = setInterval(function () {
             i += 0.1;
             ieI += 10;
-            if (arrow.filters) {
-                arrow.filters.item("DXImageTransform.Microsoft.Alpha").opacity = ieI;
+            if ((browser === 'msie') && (browserVersion <= 8)) {
+                if (arrow.filters) {
+                    arrow.filters.item("DXImageTransform.Microsoft.Alpha").opacity = ieI;
+                }
             } else {
                 arrow.style.opacity = i;
             }
         }, 50);
-        setTimeout(function() {
+        setTimeout(function () {
             clearInterval(x);
         }, 500);
         // TODO use requestAnimationFrame instead
@@ -62,16 +60,18 @@ window.Arrow = (function(window, document, undefined) {
         var arrow = document.getElementById('arrow-' + browser);
         var i = 1.0,
             ieI = 100; //need to use whole numbers for IE filter
-        var x = setInterval(function() {
+        var x = setInterval(function () {
             i -= 0.1;
             ieI -= 10;
-            if (arrow.filters) {
-                arrow.filters.item("DXImageTransform.Microsoft.Alpha").opacity = ieI;
+            if ((browser === 'msie') && (browserVersion <= 8)) {
+                if (arrow.filters) {
+                    arrow.filters.item("DXImageTransform.Microsoft.Alpha").opacity = ieI;
+                }
             } else {
                 arrow.style.opacity = i;
             }
         }, 50);
-        setTimeout(function() {
+        setTimeout(function () {
             clearInterval(x);
             arrow.style.display = 'none';
         }, 500);
@@ -80,12 +80,12 @@ window.Arrow = (function(window, document, undefined) {
     }
 
     /*
-      node.style.webkitTransform = "";
-      node.style.MozTransform = "";
-      node.style.msTransform = "";
-      node.style.OTransform = "";
-      node.style.transform = "";
-    */
+     node.style.webkitTransform = "";
+     node.style.MozTransform = "";
+     node.style.msTransform = "";
+     node.style.OTransform = "";
+     node.style.transform = "";
+     */
 
     //Always apply all modern browsers first, then vendor specific
 
@@ -213,7 +213,7 @@ window.Arrow = (function(window, document, undefined) {
 
     _initArrow(); //fired when library loads
 
-    /** 
+    /**
      * Expose Public Data and Functions
      */
 
