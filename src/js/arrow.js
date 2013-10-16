@@ -289,7 +289,23 @@ window.Arrow = (function (window, document, undefined) {
         _setStyleType(arrow);
         _calculateArrowPosition();
         _injectNode(arrow);
-        window.addEventListener('resize', _calculateArrowPosition);
+        _addWindowEvent('resize', _calculateArrowPosition);
+    }
+
+    /**
+     * Attach an event on the window object and a function to fire when it fires
+     *
+     * @method _addWindowEvent
+     * @param event {string}
+     * @param functionReference {Object}
+     * @private
+     */
+    function _addWindowEvent(event, functionReference) {
+        if (window.addEventListener) {
+            window.addEventListener(event, functionReference, false);
+        } else if (window.attachEvent) {
+            window.attachEvent(event, functionReference);
+        }
     }
 
     _initArrow(); //our constructor, fired when library loads
