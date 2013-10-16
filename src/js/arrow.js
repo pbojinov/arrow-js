@@ -11,8 +11,11 @@ window.Arrow = (function (window, document, undefined) {
 
     var version = '0.1.0',
         Arrow = {},
+        arrowNode,
         browser = '',
-        browserVersion = '';
+        browserVersion = '',
+        visibleHeight = 0,
+        visibleWidth = 0;
 
     //http://storage.conduit.com/arrowjs/arrow_orange.png
     //http://storage.conduit.com/arrowjs/arrow_orange.gif
@@ -21,16 +24,16 @@ window.Arrow = (function (window, document, undefined) {
 
     //determine browser type and browser version
     (function () {
-        var N=navigator.appName, ua=navigator.userAgent, tem;
-        var M=ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
-        if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
-        M=M? [M[1], M[2]]: [N, navigator.appVersion, '-?'];
+        var N = navigator.appName, ua = navigator.userAgent, tem;
+        var M = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+        if (M && (tem = ua.match(/version\/([\.\d]+)/i)) != null) M[2] = tem[1];
+        M = M ? [M[1], M[2]] : [N, navigator.appVersion, '-?'];
         browser = M[0].toLowerCase();
         browserVersion = M[1];
     })();
 
     /**
-     * Apply modern browser style then browser specific styles to arrowv
+     * Apply modern browser style then browser specific styles to arrow
      */
 
     function _increaseOpacity() {
@@ -51,7 +54,7 @@ window.Arrow = (function (window, document, undefined) {
         }, 50);
         setTimeout(function () {
             clearInterval(x);
-        }, 500);
+        }, 600);
         // TODO use requestAnimationFrame instead
         // see http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
     }
@@ -74,7 +77,7 @@ window.Arrow = (function (window, document, undefined) {
         setTimeout(function () {
             clearInterval(x);
             arrow.style.display = 'none';
-        }, 500);
+        }, 600);
         // TODO use requestAnimationFrame instead
         // see http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
     }
@@ -123,7 +126,7 @@ window.Arrow = (function (window, document, undefined) {
 
     function _applyStyleMs(node) {
         node.style.bottom = '50px';
-        node.style.left = '90%';
+        node.style.left = '67%';
     }
 
     //Firefox 20+
@@ -169,6 +172,7 @@ window.Arrow = (function (window, document, undefined) {
     function _buildArrow() {
         var div = document.createElement('div');
         div.setAttribute('id', 'arrow-' + browser);
+        arrowNode = div; //only used in resizing ie9
         return div;
     }
 
@@ -188,6 +192,7 @@ window.Arrow = (function (window, document, undefined) {
     function _initArrow() {
         var arrow = _buildArrow();
         _setStyleType(arrow);
+        _calculateArrowPosition();
         _injectNode(arrow);
     }
 
@@ -213,12 +218,35 @@ window.Arrow = (function (window, document, undefined) {
 
     _initArrow(); //fired when library loads
 
+    window.addEventListener('resize', _calculateArrowPosition);
+
+    //Make sure IE9 arrow is in the right place
+    function _calculateArrowPosition () {
+        if (typeof( window.innerWidth ) === 'number') {
+            //Non-IE
+            visibleWidth = window.innerWidth;
+            visibleHeight = window.innerHeight;
+        } else if (document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight )) {
+            //IE 6+ in 'standards compliant mode'
+            visibleWidth = document.documentElement.clientWidth;
+            visibleHeight = document.documentElement.clientHeight;
+        }
+
+        if ((browser === 'msie') && (browserVersion === '9.0')) {
+            if (visibleWidth < 1005) {
+                arrowNode.style.bottom = '85px';
+            } else if (visibleWidth > 1006) {
+                arrowNode.style.bottom = '50px';
+            }
+        }
+    }
+
     /**
      * Expose Public Data and Functions
      */
 
     Arrow._version = version;
-    Arrow._browser = browser,
+    Arrow._browser = browser;
     Arrow._browserVersion = browserVersion;
     Arrow.show = show;
     Arrow.hide = hide;
