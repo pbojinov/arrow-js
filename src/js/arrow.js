@@ -58,7 +58,6 @@ window.Arrow = (function(window, document, undefined) {
 
     function _decreaseOpacity() {
         var arrow = document.getElementById('arrow-' + browser);
-        arrow.style.display = 'block';
         var i = 1.0,
             ieI = 100; //need to use whole numbers for IE filter
         var x = setInterval(function() {
@@ -72,6 +71,7 @@ window.Arrow = (function(window, document, undefined) {
         }, 50);
         setTimeout(function() {
             clearInterval(x);
+            arrow.style.display = 'none';
         }, 500);
         // TODO use requestAnimationFrame instead
         // see http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
