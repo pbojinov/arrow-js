@@ -137,7 +137,7 @@ window.Arrow = (function (window, document, undefined) {
      * @private
      */
     function _applyStyleIE8(node) {
-        node.style.top = '0px';
+        node.style.top = '20px';
         node.style.left = '20px';
 
         // Only one filter style can exist so we concatenate them to one line
