@@ -138,6 +138,8 @@ window.Arrow = (function(window, document, undefined) {
     var _setStyleType = function(node) {
 
         var versionNum = parseInt(browserVersion, 10) || 0;
+        _applyStyleModern(node); //add our basic styles then do vendor prefixes
+
         if (browser === 'msie') {
             if (browserVersion === 8) {
                 _applyStyleIE8(node);
