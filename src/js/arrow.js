@@ -112,6 +112,8 @@ window.Arrow = (function (window, document, undefined) {
     function _applyStyleIE8(node) {
         node.style.bottom = '0px';
         node.style.left = '20px';
+
+        //we never set the filter in the first place...so IE cannot find it
         node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = 'http://storage.conduit.com/arrowjs/arrow_orange.png';
         node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').sizingMethod = 'scale';
         node.filters.item("DXImageTransform.Microsoft.Alpha").opacity = 0;
