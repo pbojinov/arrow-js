@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * ProjectName: ArrowJS
  * Name: Petar Bojinov
@@ -8,6 +6,8 @@
  */
 
 window.Arrow = (function(window, document, undefined) {
+
+    "use strict";
 
     var version = '0.1.0',
         Arrow = {},
@@ -27,7 +27,7 @@ window.Arrow = (function(window, document, undefined) {
         M = M[2] ? [M[1], M[2]] : [N, navigator.appVersion, '-?'];
         if (M && (tem = ua.match(/version\/([\.\d]+)/i)) != null) {
             M[2] = tem[1];
-        };
+        }
         browser = M[0].toLowerCase();
         browserVersion = M[1];
     })();
@@ -87,7 +87,8 @@ window.Arrow = (function(window, document, undefined) {
     */
 
     //Always apply all modern browsers first, then vendor specific
-    function _applyStyleModern (node) {
+
+    function _applyStyleModern(node) {
         node.style.position = 'absolute';
         //TODO
         //top, left, right, bottom position?
@@ -103,6 +104,7 @@ window.Arrow = (function(window, document, undefined) {
     }
 
     //IE 8 styles
+
     function _applyStyleIE8(node) {
         node.style.bottom = '0px';
         node.style.left = '20px';
@@ -117,12 +119,14 @@ window.Arrow = (function(window, document, undefined) {
     }
 
     //IE 9 styles
-    var _applyStyleMs = function(node) {
+
+    function _applyStyleMs(node) {
         node.style.top = '0px';
         node.style.left = '90%';
     }
 
     //Firefox 20+
+
     function _applyStyleMoz(node) {
         node.style.bottom = '50px';
         node.style.left = '68%';
@@ -131,6 +135,7 @@ window.Arrow = (function(window, document, undefined) {
     }
 
     //Chrome
+
     function _applyStyleWebkit(node) {
         node.style.bottom = '0px';
         node.style.left = '20px';
@@ -156,9 +161,10 @@ window.Arrow = (function(window, document, undefined) {
             }
         }
         //TODO windows safari download arrow?
-    };
+    }
 
     //Create div container for arrow and set its id to the browser type
+
     function _buildArrow() {
         var div = document.createElement('div');
         div.setAttribute('id', 'arrow-' + browser);
@@ -166,9 +172,10 @@ window.Arrow = (function(window, document, undefined) {
     }
 
     //Add node to the page, in this case our arrow
+
     function _injectNode(node) {
         docBody.appendChild(node);
-    };
+    }
 
     function _isExist() {
         return !!(document.getElementById('arrow-' + browser));
@@ -176,6 +183,7 @@ window.Arrow = (function(window, document, undefined) {
 
     //should only be run once per Arrow instance
     //in the future would be nice to manage multiple arrows
+
     function _initArrow() {
         var arrow = _buildArrow();
         _setStyleType(arrow);
@@ -195,7 +203,7 @@ window.Arrow = (function(window, document, undefined) {
         } else {
             throw 'Invalid usage: arrow does not exist';
         }
-    };
+    }
 
     function hide() {
         if (_isExist()) {
@@ -203,7 +211,7 @@ window.Arrow = (function(window, document, undefined) {
         } else {
             throw 'Invalid usage: There are no arrows on the page.';
         }
-    };
+    }
 
     /** 
      * Expose Public Data and Functions
@@ -216,4 +224,4 @@ window.Arrow = (function(window, document, undefined) {
 
     return Arrow;
 
-})(this, this.document);
+})(window, window.document);
