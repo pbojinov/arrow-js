@@ -1,42 +1,56 @@
-yourLibrary
+Arrow.js
 ===
 
-A JavaScript Library
-
-### Maintainer
-
-[Christopher EnyTC](https://github.com/chrisenytc)
+Arrow is a small JavaScript library for displaying a cross-browser downloads arrow
 
 ### Get Started
 
-Install dependencies
+Include the javascript in your HTML
 
-`sudo npm install && bower install`
+```html
+<script type="text/javascript" src="arrow.js">
+```
 
-Build Project
+Or use the minified version
 
-`grunt`
-
-Run Tests
-
-Open `SpecRunner.html` in your browser and test with jasmine
+```html
+<script type="text/javascript" src="arrow-0.0.2.min.js">
+```
 
 ### How to use
 
+#### Properties
 
 ```javascript
 //Get Version
-yourLibrary.version;
+Arrow._version;
 
-//say Hello World
-yourLibrary.hello();
+//Get Current Browser
+Arrow._browser;
+
+//Get Current Browser Version
+Arrow._browserVersion 
 ```
+
+#### API
+
+```javascript
+//Display the Arrow
+Arrow.show();
+
+//Hide the Arrow
+Arrow.hide();
+```
+
+### Maintainer
+
+[Petar Bojinov](https://github.com/pbojinov)
 
 ### License
 
 The MIT License (MIT)
 
-Copyright (c) 2013 VaiPra.La
+Copyright (c) 2013 Conduit Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
