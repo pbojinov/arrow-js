@@ -137,7 +137,7 @@ window.Arrow = (function (window, document, undefined) {
      * @private
      */
     function _applyStyleIE8(node) {
-        node.style.top = '20px';
+        node.style.top = '10px';
         node.style.left = '20px';
 
         // Only one filter style can exist so we concatenate them to one line
@@ -194,7 +194,7 @@ window.Arrow = (function (window, document, undefined) {
      */
     function _applyStyleMoz(node) {
         node.style.top = '0px';
-        node.style.right = '40px';
+        node.style.right = '37px';
         node.style.transform = 'rotateX(180deg) rotateY(180deg)';
         node.style.MozTransform = 'rotateX(180deg) rotateY(180deg)';
     }
