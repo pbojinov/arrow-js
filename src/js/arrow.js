@@ -1,7 +1,7 @@
 /**
  * ProjectName: ArrowJS
  * Name: Petar Bojinov
- * Email: petar@ conduit.com
+ * Email: petar@conduit.com
  * Github: https: //github.com/chrisenytc/generator-library
  */
 
@@ -15,7 +15,9 @@ window.Arrow = (function(window, document, undefined) {
         browserVersion = '';
 
     //http://storage.conduit.com/arrowjs/arrow_orange.png
+    //http://storage.conduit.com/arrowjs/arrow_orange.gif 
     //http://storage.conduit.com/arrowjs/arrow_green.png
+    //http://storage.conduit.com/arrowjs/arrow_green.gif
 
     //determine browser type and browser version
     (function() {
@@ -120,14 +122,14 @@ window.Arrow = (function(window, document, undefined) {
     //IE 9 styles
 
     function _applyStyleMs(node) {
-        node.style.top = '0px';
+        node.style.bottom = '50px';
         node.style.left = '90%';
     }
 
     //Firefox 20+
 
     function _applyStyleMoz(node) {
-        node.style.bottom = '50px';
+        node.style.top = '0px';
         node.style.left = '68%';
         node.style.transform = 'rotateX(180deg) rotateY(180deg)';
         node.style.MozTransform = 'rotateX(180deg) rotateY(180deg)';
