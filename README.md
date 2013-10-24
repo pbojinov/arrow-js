@@ -41,6 +41,10 @@ Arrow._browserVersion
 Arrow.show([seconds]);
 ```
 
+### Browser Support
+
+Chrome 4+, Firefox 3.5+, IE 8+
+
 ### Screenshots
 
 Chrome
