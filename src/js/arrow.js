@@ -10,7 +10,7 @@ window.Arrow = (function (window, document, undefined) {
 
     'use strict';
 
-    var version = '0.1.1',
+    var version = '0.1.3',
         Arrow = {},
         arrowNode,
         browser = '',
@@ -48,7 +48,7 @@ window.Arrow = (function (window, document, undefined) {
      * @method _increaseOpacity
      * @private
      */
-    function _increaseOpacity() {
+    function _increaseOpacity(seconds) {
         var arrow = document.getElementById('arrow-' + browser);
         arrow.style.display = 'block';
         var i = 0.0,
@@ -68,8 +68,8 @@ window.Arrow = (function (window, document, undefined) {
             clearInterval(x);
         }, 600);
         setTimeout(function() {
-            _decreaseOpacity();
-        }, 6000);
+            _hide();
+        }, seconds || 6000);
         // TODO use requestAnimationFrame - http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
     }
 
@@ -344,6 +344,22 @@ window.Arrow = (function (window, document, undefined) {
     }
 
     /**
+     * Hide the arrow
+     * If it doesn't exist it will throw an exception
+     *
+     * @method _hide
+     * @private
+     */
+    function _hide() {
+        if (_isExist()) {
+            _decreaseOpacity();
+        }
+        else {
+            throw 'Invalid usage: There are no arrows on the page.';
+        }
+    }
+
+    /**
      * Public API
      */
 
@@ -352,29 +368,14 @@ window.Arrow = (function (window, document, undefined) {
      * If it doesn't exist it will throw an exception
      *
      * @method show
+     * @param seconds {int} optional parameter, length in seconds to fade out after
      * @public
      */
-    function show() {
+    function show(seconds) {
         if (_isExist()) {
-            _increaseOpacity();
+            _increaseOpacity(seconds);
         } else {
             throw 'Invalid usage: arrow does not exist';
-        }
-    }
-
-    /**
-     * Hide the arrow
-     * If it doesn't exist it will throw an exception
-     *
-     * @method hide
-     * @public
-     */
-    function hide() {
-        if (_isExist()) {
-            _decreaseOpacity();
-        }
-        else {
-            throw 'Invalid usage: There are no arrows on the page.';
         }
     }
 
@@ -386,7 +387,6 @@ window.Arrow = (function (window, document, undefined) {
     Arrow._browser = browser;
     Arrow._browserVersion = browserVersion;
     Arrow.show = show;
-    Arrow.hide = hide;
 
     return Arrow;
 
