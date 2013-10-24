@@ -3,8 +3,6 @@ Arrow.js
 
 Arrow is a small JavaScript library for displaying a arrow pointing to the browser download location. Perfect for pointing at that new file you downloaded!
 
-Arrow will position itself to point at the browsers download location when you activate it.
-
 ### Get Started
 
 Include the javascript in your HTML
