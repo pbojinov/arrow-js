@@ -22,11 +22,11 @@ module.exports = function(grunt) {
          " * Version: <%= pkg.version %>\n" +
          " *\n" +
          " * Author:  <%= pkg.author.name %>\n" +
-         " * Site:    <%= pkg.author.url %>\n" +
+         //" * Site:    <%= pkg.author.url %>\n" +
          " * Contact: <%= pkg.author.email %>\n" +
          " *\n" +
          " *\n" +
-         " * Copyright (c) <%= grunt.template.today(\"yyyy\") %> <%= pkg.author.name %>\n" +
+         " * Copyright (c) <%= grunt.template.today(\"yyyy\") %> Conduit\n" +
          " * -------------------------------------------------------\n" +
          " */\n" +
          "\n",
