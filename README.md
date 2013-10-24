@@ -2,6 +2,7 @@ Arrow.js
 ===
 
 Arrow is a small JavaScript library for displaying a cross-browser arrow. Perfect for pointing at that new file you downloaded!
+Arrow will take care of positioning itself to point at the browsers download location when you trigger it.
 
 ### Get Started
 
