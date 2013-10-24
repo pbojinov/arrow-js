@@ -10,7 +10,7 @@ window.Arrow = (function (window, document, undefined) {
 
     'use strict';
 
-    var version = '0.1.0',
+    var version = '0.1.1',
         Arrow = {},
         arrowNode,
         browser = '',
@@ -64,9 +64,12 @@ window.Arrow = (function (window, document, undefined) {
                 arrow.style.opacity = i;
             }
         }, 50);
-        setTimeout(function () {
+        setTimeout(function() {
             clearInterval(x);
         }, 600);
+        setTimeout(function() {
+            _decreaseOpacity();
+        }, 6000);
         // TODO use requestAnimationFrame - http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
     }
 
@@ -117,7 +120,7 @@ window.Arrow = (function (window, document, undefined) {
      * @private
      */
     function _applyStyleModern(node) {
-        node.style.position = 'absolute';
+        node.style.position = 'fixed';
         node.style.zIndex = 999;
         node.style.display = 'none';
         node.style.height = '309px';
@@ -290,6 +293,7 @@ window.Arrow = (function (window, document, undefined) {
         _calculateArrowPosition();
         _injectNode(arrow);
         _addWindowEvent('resize', _calculateArrowPosition);
+        _addWindowEvent('scroll', _calculateArrowPosition);
     }
 
     /**
