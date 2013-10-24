@@ -45,6 +45,14 @@ Arrow.show([seconds]);
 
 Chrome 4+, Firefox 3.5+, IE 8+
 
+* The Firefox download manager was introduced in version 23 so the arrow will point in the top right.
+
+* Chrome downloads start at the bottom left of the page.
+
+* IE 9/10 downloads start in the bottom center.
+
+* IE 8 downloads come up in the center of the screen unless the security warnings comes up at the top of the page. So the arrow points at the top left.
+
 ### Screenshots
 
 Chrome
