@@ -24,7 +24,7 @@ Or use the minified version
 #### Properties
 
 ```javascript
-//Get Version
+//Get Arrow.js Version
 Arrow._version;
 
 //Get Current Browser
