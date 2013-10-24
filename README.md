@@ -1,7 +1,7 @@
 Arrow.js
 ===
 
-Arrow is a small JavaScript library for displaying a cross-browser downloads arrow
+Arrow is a small JavaScript library for displaying a cross-browser arrow. Perfect for pointing at that new file you downloaded!
 
 ### Get Started
 
@@ -14,7 +14,7 @@ Include the javascript in your HTML
 Or use the minified version
 
 ```html
-<script type="text/javascript" src="arrow-0.0.2.min.js">
+<script type="text/javascript" src="arrow-0.1.3.min.js">
 ```
 
 ### How to use
@@ -35,17 +35,29 @@ Arrow._browserVersion
 #### API
 
 ```javascript
-//Display the Arrow
-Arrow.show();
-
-//Hide the Arrow
-Arrow.hide();
+//Display the Arrow for 6 seconds
+//
+//@param seconds {integer} Show the arrow for this many seconds then fade out
+Arrow.show([seconds]);
 ```
 
 ### Screenshots
 
+Chrome
 
+![Chrome](https://photos-4.dropbox.com/t/0/AABmgRIo-KSjclPuXmprb_jjCxUEOzneF8WzRx1inwn5pQ/12/108303639/png/2048x1536/3/1382652000/0/2/Screenshot%202013-10-16%2010.30.23.png/g_XS9RDsCEuREnxaOsmtKXz1oqsueiOtKRdf7ETNUUw)
 
+Firefox
+
+![Firefox](https://photos-2.dropbox.com/t/0/AADv3wZlBUHTsPxYZPvfpUGJSZZc7gFdiOoenepZ0vvr_Q/12/108303639/png/2048x1536/3/1382652000/0/2/Screenshot%202013-10-16%2012.30.28.png/rJolob5JXOiFrsXHFnRTF5J7MJ89kOmmd7MCDYPPhhI)
+
+IE 9/10 Wide Screen
+
+![IE 9/10 Wide](https://photos-2.dropbox.com/t/0/AABtcbEYSll6PItfDRcNGZNkaqEAkeY3I5LU9pMEVR1bTg/12/108303639/png/1024x768/3/1382652000/0/2/Screenshot%202013-10-16%2012.24.01.png/PepQ5rDAnUdOuaUBuDEQhbClS1107mwIE6Q0P4hhMR0)
+
+IE 9/10 Narrow Screen
+
+![IE 9/10 Narrow](https://photos-3.dropbox.com/t/0/AADqx21ypFw0TKJaVGmbvgFe3zgrZ6VvDzQ0zoKdTpLczg/12/108303639/png/1024x768/3/1382652000/0/2/Screenshot%202013-10-16%2012.25.03.png/xKoW4T1dI4sJsRyAgudRgfyxaF-bsZqgFfvQxB3C0xk)
 ### Maintainer
 
 [Petar Bojinov](https://github.com/pbojinov)
