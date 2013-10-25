@@ -10,7 +10,7 @@ window.Arrow = (function (window, document, undefined) {
 
     'use strict';
 
-    var version = '0.1.3',
+    var version = '0.1.4',
         Arrow = {},
         arrowNode,
         browser = '',
