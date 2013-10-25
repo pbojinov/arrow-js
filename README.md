@@ -1,4 +1,4 @@
-![Arrow.js](https://photos-6.dropbox.com/t/0/AAAtkg5cyLWgsP41ckIT6NYNGaaNSZBjazkoWRlTEV9XOA/12/108303639/png/1024x768/3/1382677200/0/2/arrowjs.png/u1YiSa9ZTt0LY31weJGe6GNjlStlUayD1t4d14qpO5M)
+![Arrow.js](http://storage.conduit.com/arrowjs/arrowjs.png)
 ===
 
 Arrow is a small JavaScript library for displaying a arrow pointing to the browser download location. Perfect for pointing at that new file you downloaded!
@@ -57,19 +57,20 @@ Chrome 4+, Firefox 3.5+, IE 8+
 
 Chrome
 
-![Chrome](https://photos-4.dropbox.com/t/0/AABmgRIo-KSjclPuXmprb_jjCxUEOzneF8WzRx1inwn5pQ/12/108303639/png/2048x1536/3/1382652000/0/2/Screenshot%202013-10-16%2010.30.23.png/g_XS9RDsCEuREnxaOsmtKXz1oqsueiOtKRdf7ETNUUw)
+![Chrome](http://storage.conduit.com/arrowjs/chrome.png)
 
 Firefox
 
-![Firefox](https://photos-2.dropbox.com/t/0/AADv3wZlBUHTsPxYZPvfpUGJSZZc7gFdiOoenepZ0vvr_Q/12/108303639/png/2048x1536/3/1382652000/0/2/Screenshot%202013-10-16%2012.30.28.png/rJolob5JXOiFrsXHFnRTF5J7MJ89kOmmd7MCDYPPhhI)
+![Firefox](http://storage.conduit.com/arrowjs/ff.png)
 
 IE 9/10 Wide Screen
 
-![IE 9/10 Wide](https://photos-2.dropbox.com/t/0/AABtcbEYSll6PItfDRcNGZNkaqEAkeY3I5LU9pMEVR1bTg/12/108303639/png/1024x768/3/1382652000/0/2/Screenshot%202013-10-16%2012.24.01.png/PepQ5rDAnUdOuaUBuDEQhbClS1107mwIE6Q0P4hhMR0)
+![IE 9/10 Wide](http://storage.conduit.com/arrowjs/iebig.png)
 
 IE 9/10 Narrow Screen
 
-![IE 9/10 Narrow](https://photos-3.dropbox.com/t/0/AADqx21ypFw0TKJaVGmbvgFe3zgrZ6VvDzQ0zoKdTpLczg/12/108303639/png/1024x768/3/1382652000/0/2/Screenshot%202013-10-16%2012.25.03.png/xKoW4T1dI4sJsRyAgudRgfyxaF-bsZqgFfvQxB3C0xk)
+![IE 9/10 Narrow](http://storage.conduit.com/arrowjs/iesmall.png)
+
 ### Maintainer
 
 [Petar Bojinov](https://github.com/pbojinov)
