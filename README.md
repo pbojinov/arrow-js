@@ -77,6 +77,12 @@ IE 9/10 Narrow Screen
 
 ![IE 9/10 Narrow](http://storage.conduit.com/arrowjs/iesmall.png)
 
+### Library Size
+
+Original: 12054 bytes.
+
+Minified: 4449 bytes.
+
 ### Maintainer
 
 [Petar Bojinov](https://github.com/pbojinov)
