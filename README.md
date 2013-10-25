@@ -43,8 +43,8 @@ Arrow._browserVersion
 ```javascript
 //Display the Arrow for 6 seconds
 //
-//@param seconds {integer} Show the arrow for this many seconds then fade out
-Arrow.show([seconds]);
+//@param seconds {integer} Show the arrow for this many seconds then fade out. It is optional
+Arrow.show();
 ```
 
 ### Browser Support
