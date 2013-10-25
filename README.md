@@ -1,7 +1,7 @@
-Arrow.js
+![Arrow.js](http://storage.conduit.com/arrowjs/arrowjs.png)
 ===
 
-Arrow is a small JavaScript library for displaying a cross-browser downloads arrow
+Arrow is a small JavaScript library for displaying a arrow pointing to the browser download location. Perfect for pointing at that new file you downloaded!
 
 ### Get Started
 
@@ -14,7 +14,7 @@ Include the javascript in your HTML
 Or use the minified version
 
 ```html
-<script type="text/javascript" src="arrow-0.0.2.min.js">
+<script type="text/javascript" src="arrow-0.1.3.min.js">
 ```
 
 ### How to use
@@ -22,7 +22,7 @@ Or use the minified version
 #### Properties
 
 ```javascript
-//Get Version
+//Get Arrow.js Version
 Arrow._version;
 
 //Get Current Browser
@@ -35,16 +35,41 @@ Arrow._browserVersion
 #### API
 
 ```javascript
-//Display the Arrow
-Arrow.show();
-
-//Hide the Arrow
-Arrow.hide();
+//Display the Arrow for 6 seconds
+//
+//@param seconds {integer} Show the arrow for this many seconds then fade out
+Arrow.show([seconds]);
 ```
+
+### Browser Support
+
+Chrome 4+, Firefox 3.5+, IE 8+
+
+* The Firefox download manager was introduced in version 23 so the arrow will point in the top right.
+
+* Chrome downloads start at the bottom left of the page.
+
+* IE 9/10 downloads start in the bottom center.
+
+* IE 8 downloads come up in the center of the screen unless the security warnings comes up at the top of the page. So the arrow points at the top left.
 
 ### Screenshots
 
+Chrome
 
+![Chrome](http://storage.conduit.com/arrowjs/chrome.png)
+
+Firefox
+
+![Firefox](http://storage.conduit.com/arrowjs/ff.png)
+
+IE 9/10 Wide Screen
+
+![IE 9/10 Wide](http://storage.conduit.com/arrowjs/iebig.png)
+
+IE 9/10 Narrow Screen
+
+![IE 9/10 Narrow](http://storage.conduit.com/arrowjs/iesmall.png)
 
 ### Maintainer
 
