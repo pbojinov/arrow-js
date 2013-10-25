@@ -9,7 +9,6 @@
     "lib",
     "test",
     "spec",
-    "src",
     "node_modules",
     "Gruntfile.js",
     "SpecRunner.html",
