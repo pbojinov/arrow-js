@@ -17,6 +17,12 @@ Or use the minified version
 <script type="text/javascript" src="arrow-0.1.3.min.js">
 ```
 
+### Installing with Bower
+
+Bower depends on [Node](http://nodejs.org/) and [npm](http://npmjs.org/). 
+
+    bower install arrowjs
+
 ### How to use
 
 #### Properties
