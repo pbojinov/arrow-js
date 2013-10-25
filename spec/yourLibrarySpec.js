@@ -1,11 +1,7 @@
-describe("yourLibrary", function() {
+describe("Arrow", function() {
   
-  it("Get a version of yourLibrary", function () {
-    expect(yourLibrary.version).toBe("0.0.1");
-  });
-  
-  it("say Hello World", function () {
-    expect(yourLibrary.hello()).toBe("Hello World JS!");
+  it("Get a version of Arrow", function () {
+    expect(Arrow._version).toBe("0.1.3");
   });
   
 });
