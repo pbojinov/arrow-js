@@ -59,23 +59,6 @@ Chrome 4+, Firefox 3.5+, IE 8+
 
 * IE 8 downloads come up in the center of the screen unless the security warnings comes up at the top of the page. So the arrow points at the top left.
 
-### Screenshots
-
-Chrome
-
-![Chrome](http://storage.conduit.com/arrowjs/chrome.png)
-
-Firefox
-
-![Firefox](http://storage.conduit.com/arrowjs/ff.png)
-
-IE 9/10 Wide Screen
-
-![IE 9/10 Wide](http://storage.conduit.com/arrowjs/iebig.png)
-
-IE 9/10 Narrow Screen
-
-![IE 9/10 Narrow](http://storage.conduit.com/arrowjs/iesmall.png)
 
 ### Library Size
 
