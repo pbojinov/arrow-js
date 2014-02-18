@@ -2,7 +2,6 @@
  * ProjectName: ArrowJS
  * Name: Petar Bojinov
  * Email: petar@conduit.com
- * Github: https: //github.com/chrisenytc/generator-library
  */
 
 /* Pass in (window, document, undefined) to have an unmodified version of the variable in our function scope */
