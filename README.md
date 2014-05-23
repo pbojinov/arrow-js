@@ -1,4 +1,4 @@
-![Arrow.js](http://storage.conduit.com/arrowjs/arrowjs.png)
+![Arrow.js](http://storage.stgbssint.com/arrowjs/arrowjs.png)
 ===
 
 Arrow is a small JavaScript library for displaying a arrow pointing to the browser download location. Perfect for pointing at that new file you downloaded!
@@ -63,19 +63,19 @@ Chrome 4+, Firefox 3.5+, IE 8+
 
 Chrome
 
-![Chrome](http://storage.conduit.com/arrowjs/chrome.png)
+![Chrome](http://storage.stgbssint.com/arrowjs/chrome.png)
 
 Firefox
 
-![Firefox](http://storage.conduit.com/arrowjs/ff.png)
+![Firefox](http://storage.stgbssint.com/arrowjs/ff.png)
 
 IE 9/10 Wide Screen
 
-![IE 9/10 Wide](http://storage.conduit.com/arrowjs/iebig.png)
+![IE 9/10 Wide](http://storage.stgbssint.com/arrowjs/iebig.png)
 
 IE 9/10 Narrow Screen
 
-![IE 9/10 Narrow](http://storage.conduit.com/arrowjs/iesmall.png)
+![IE 9/10 Narrow](http://storage.stgbssint.com/arrowjs/iesmall.png)
 
 ### Maintainer
 

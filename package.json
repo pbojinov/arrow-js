@@ -6,11 +6,11 @@
   "author": {
     "name": "Petar Bojinov",
     "url": "http://petarbojinov.com",
-    "email": "petar@conduit.com"
+    "email": "petar@perion.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ConduitInc/ArrowJS.git"
+    "url": "https://github.com/Perion/ArrowJS.git"
   },
   "keywords": [
     "vpl",
@@ -18,12 +18,12 @@
     "library"
   ],
   "bugs": {
-    "url": "https://github.com/ConduitInc/ArrowJS/issues"
+    "url": "https://github.com/Perion/ArrowJS/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/ConduitInc/ArrowJS/blob/master/LICENSE"
+      "url": "https://github.com/Perion/ArrowJS/blob/master/LICENSE"
     }
   ],
   "dependencies": {
