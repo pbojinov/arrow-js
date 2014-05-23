@@ -25,6 +25,15 @@ Bower depends on [Node](http://nodejs.org/) and [npm](http://npmjs.org/).
 
 ### How to use
 
+#### API
+
+```javascript
+//Display the Arrow for 6 seconds
+//
+//@param seconds {integer} Show the arrow for this many seconds then fade out. It is optional
+Arrow.show();
+```
+
 #### Properties
 
 ```javascript
@@ -36,15 +45,6 @@ Arrow._browser;
 
 //Get Current Browser Version
 Arrow._browserVersion 
-```
-
-#### API
-
-```javascript
-//Display the Arrow for 6 seconds
-//
-//@param seconds {integer} Show the arrow for this many seconds then fade out. It is optional
-Arrow.show();
 ```
 
 ### Browser Support
@@ -59,14 +59,18 @@ Chrome 4+, Firefox 3.5+, IE 8+
 
 * IE 8 downloads come up in the center of the screen unless the security warnings comes up at the top of the page. So the arrow points at the top left.
 
+<<<<<<< HEAD
 ### Screenshots
 
 Chrome
 
 ![Chrome](http://storage.stgbssint.com/arrowjs/chrome.png)
+=======
+>>>>>>> 14481daa32855e749a641d8bd41c24b934b47dcf
 
-Firefox
+### Library Size
 
+<<<<<<< HEAD
 ![Firefox](http://storage.stgbssint.com/arrowjs/ff.png)
 
 IE 9/10 Wide Screen
@@ -76,6 +80,11 @@ IE 9/10 Wide Screen
 IE 9/10 Narrow Screen
 
 ![IE 9/10 Narrow](http://storage.stgbssint.com/arrowjs/iesmall.png)
+=======
+Original: 12054 bytes.
+
+Minified: 4449 bytes.
+>>>>>>> 14481daa32855e749a641d8bd41c24b934b47dcf
 
 ### Maintainer
 
@@ -103,3 +112,7 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ConduitInc/arrowjs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

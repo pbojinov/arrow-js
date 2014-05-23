@@ -1,8 +1,12 @@
 /**
  * ProjectName: ArrowJS
  * Name: Petar Bojinov
+<<<<<<< HEAD
  * Email: petar@perion.com
  * Github: https: //github.com/chrisenytc/generator-library
+=======
+ * Email: petar@conduit.com
+>>>>>>> 14481daa32855e749a641d8bd41c24b934b47dcf
  */
 
 /* Pass in (window, document, undefined) to have an unmodified version of the variable in our function scope */
