@@ -1,4 +1,4 @@
-![Arrow.js](http://storage.stgbssint.com/arrowjs/arrowjs.png)
+![Arrow.js](http://i.imgur.com/rZSWaEl.png)
 ===
 
 Arrow is a small JavaScript library for displaying a arrow pointing to the browser download location. Perfect for pointing at that new file you downloaded!
@@ -19,9 +19,9 @@ Or use the minified version
 
 ### Installing with Bower
 
-Bower depends on [Node](http://nodejs.org/) and [npm](http://npmjs.org/). 
+Bower requires [Node](http://nodejs.org/) and [npm](http://npmjs.org/). 
 
-    bower install arrowjs
+    bower install arrow-js
 
 ### How to use
 
@@ -63,19 +63,19 @@ Chrome 4+, Firefox 3.5+, IE 8+
 
 Chrome
 
-![Chrome](http://storage.stgbssint.com/arrowjs/chrome.png)
+![Chrome](http://i.imgur.com/1zW8EYG.png)
 
 Firefox
 
-![Firefox](http://storage.stgbssint.com/arrowjs/ff.png)
+![Firefox](http://i.imgur.com/6EgcJId.png)
 
 IE 9/10 Wide Screen
 
-![IE 9/10 Wide](http://storage.stgbssint.com/arrowjs/iebig.png)
+![IE 9/10 Wide](http://i.imgur.com/WyDd3j4.png)
 
 IE 9/10 Narrow Screen
 
-![IE 9/10 Narrow](http://storage.stgbssint.com/arrowjs/iesmall.png)
+![IE 9/10 Narrow](http://i.imgur.com/fztArJ3.png)
 
 ### Library Size
 
@@ -109,7 +109,4 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ConduitInc/arrowjs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
