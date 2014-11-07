@@ -1,6 +1,6 @@
 {
   "name": "ArrowJS",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description" : "Display an arrow pointing to the browser download location",
   "main": [
     "src/js/arrow.js"

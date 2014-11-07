@@ -1,12 +1,7 @@
 /**
- * ProjectName: ArrowJS
+ * Project Name: ArrowJS
  * Name: Petar Bojinov
-<<<<<<< HEAD
- * Email: petar@perion.com
- * Github: https: //github.com/chrisenytc/generator-library
-=======
- * Email: petar@conduit.com
->>>>>>> 14481daa32855e749a641d8bd41c24b934b47dcf
+ * Github: https: //github.com/pbojinov/arrowjs
  */
 
 /* Pass in (window, document, undefined) to have an unmodified version of the variable in our function scope */
@@ -14,7 +9,7 @@ window.Arrow = (function (window, document, undefined) {
 
     'use strict';
 
-    var version = '0.1.4',
+    var version = '0.1.5',
         Arrow = {},
         arrowNode,
         browser = '',
@@ -25,10 +20,8 @@ window.Arrow = (function (window, document, undefined) {
     /**
      * Other available arrows to use. Planning on adding more colors
      *
-     * http://storage.stgbssint.com/arrowjs/arrow_orange.png
-     * http://storage.stgbssint.com/arrowjs/arrow_orange.gif
-     * http://storage.stgbssint.com/arrowjs/arrow_green.png
-     * http://storage.stgbssint.com/arrowjs/arrow_green.gif
+     * http://i.imgur.com/aMwoyfN.png // orange arrow
+     * http://i.imgur.com/MZRB3eb.png // green arrow 
      */
 
     /**
@@ -130,7 +123,7 @@ window.Arrow = (function (window, document, undefined) {
         node.style.height = '309px';
         node.style.width = '186px';
         node.style.opacity = 0;
-        node.style.backgroundImage = 'url(http://storage.stgbssint.com/arrowjs/arrow_orange.png)';
+        node.style.backgroundImage = 'url(http://i.imgur.com/aMwoyfN.png)';
         node.style.backgroundRepeat = 'no-repeat';
         node.style.backgroundPositionX = '0';
         node.style.backgroundPositionY = '0';
@@ -149,7 +142,7 @@ window.Arrow = (function (window, document, undefined) {
 
         // Only one filter style can exist so we concatenate them to one line
         var opacity = 'progid:DXImageTransform.Microsoft.Alpha(opacity=0) ',
-            imgSrc = 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://storage.stgbssint.com/arrowjs/arrow_orange.gif", sizingMethod="scale") ',
+            imgSrc = 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://i.imgur.com/aMwoyfN.png", sizingMethod="scale") ',
             rotation = 'progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=1.2246063538223773e-16, M21=-1.2246063538223773e-16, M22=-1, SizingMethod="auto expand") ';
 
         node.style.filter = opacity + imgSrc + rotation;
@@ -169,7 +162,7 @@ window.Arrow = (function (window, document, undefined) {
          * How to access IE filters with JS
          *
          * node.filters.item('DXImageTransform.Microsoft.Alpha').opacity = 0;
-         * node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = 'http://storage.stgbssint.com/arrowjs/arrow_orange.png';
+         * node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = 'http://i.imgur.com/aMwoyfN.png';
          * node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').sizingMethod = 'scale';
          * node.filters.item('DXImageTransform.Microsoft.Matrix').M11 = 1;
          * node.filters.item('DXImageTransform.Microsoft.Matrix').M12 = 1.2246063538223773e-16;

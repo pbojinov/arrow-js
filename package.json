@@ -1,16 +1,16 @@
 {
   "name": "ArrowJS",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "title": "arrow",
   "description": "Arrow is a small JavaScript library for displaying a cross-browser downloads arrow",
   "author": {
     "name": "Petar Bojinov",
     "url": "http://petarbojinov.com",
-    "email": "petar@perion.com"
+    "email": "petarbojinov@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Perion/ArrowJS.git"
+    "url": "https://github.com/pbojinov/ArrowJS.git"
   },
   "keywords": [
     "vpl",
@@ -18,12 +18,12 @@
     "library"
   ],
   "bugs": {
-    "url": "https://github.com/Perion/ArrowJS/issues"
+    "url": "https://github.com/pbojinov/ArrowJS/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/Perion/ArrowJS/blob/master/LICENSE"
+      "url": "https://github.com/pbojinov/ArrowJS/blob/master/LICENSE"
     }
   ],
   "dependencies": {
