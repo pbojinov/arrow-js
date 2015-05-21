@@ -1,7 +1,7 @@
 /**
  * Project Name: ArrowJS
  * Name: Petar Bojinov
- * Github: https: //github.com/pbojinov/arrowjs
+ * Github: https://github.com/pbojinov/arrowjs
  */
 
 /* Pass in (window, document, undefined) to have an unmodified version of the variable in our function scope */
