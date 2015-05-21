@@ -45,7 +45,7 @@ window.Arrow = (function (window, document, undefined) {
      * @method _increaseOpacity
      * @private
      */
-    function _increaseOpacity(seconds) {
+    function _increaseOpacity(milliseconds) {
         var arrow = document.getElementById('arrow-' + browser);
         arrow.style.display = 'block';
         var i = 0.0,
@@ -66,7 +66,7 @@ window.Arrow = (function (window, document, undefined) {
         }, 600);
         setTimeout(function() {
             _hide();
-        }, seconds || 6000);
+        }, milliseconds || 6000);
         // TODO use requestAnimationFrame - http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
     }
 
