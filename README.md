@@ -28,10 +28,11 @@ Bower requires [Node](http://nodejs.org/) and [npm](http://npmjs.org/).
 #### API
 
 ```javascript
-//Display the Arrow for 6 seconds
+//Display the Arrow for 5 seconds
 //
-//@param seconds {integer} Show the arrow for this many seconds then fade out. It is optional
-Arrow.show();
+//@param milliseconds {integer} Show the arrow for this many milliseconds then fade
+//out. Defaults to 6000 milliseconds (6 seconds)
+Arrow.show(5000);
 ```
 
 #### Properties
