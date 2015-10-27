@@ -229,7 +229,7 @@ window.Arrow = (function (window, document, undefined) {
      */
     function _applyStyleSafari(node) {
         node.style.top = '0px';
-		node.style.right = '37px';
+		node.style.right = '80px';
 		node.style.transform = 'rotateX(180deg) rotateY(180deg)';
 		node.style.webkitTransform = 'rotateX(180deg) rotateY(180deg)';
     }
