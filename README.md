@@ -80,15 +80,15 @@ IE 9/10 Narrow Screen
 
 IE 11
 
-![IE11](http://imgur.com/7CusGBs)
+![IE11](http://i.imgur.com/7CusGBs.jpg)
 
 EDGE
 
-![EDGE](http://imgur.com/gEOk2ql)
+![EDGE](http://i.imgur.com/gEOk2ql.jpg)
 
 Safari
 
-![Safari](http://imgur.com/3zGlG50)
+![Safari](http://i.imgur.com/3zGlG50.png)
 	
 
 
