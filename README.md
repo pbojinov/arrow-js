@@ -96,7 +96,7 @@ Safari
 
 Original: 12482 bytes.
 
-Minified: 4449 bytes.
+Minified: 4547 bytes.
 
 ### Maintainer
 
