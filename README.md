@@ -78,11 +78,25 @@ IE 9/10 Narrow Screen
 
 ![IE 9/10 Narrow](http://i.imgur.com/fztArJ3.png)
 
+IE 11
+
+![IE11](http://i.imgur.com/7CusGBs.jpg)
+
+EDGE
+
+![EDGE](http://i.imgur.com/gEOk2ql.jpg)
+
+Safari
+
+![Safari](http://i.imgur.com/3zGlG50.png)
+	
+
+
 ### Library Size
 
-Original: 12054 bytes.
+Original: 12482 bytes.
 
-Minified: 4449 bytes.
+Minified: 4547 bytes.
 
 ### Maintainer
 

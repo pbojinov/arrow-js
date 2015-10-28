@@ -9,7 +9,7 @@ window.Arrow = (function (window, document, undefined) {
 
     'use strict';
 
-    var version = '0.1.6',
+    var version = '0.1.7',
         Arrow = {},
         arrowNode,
         browser = '',
@@ -34,7 +34,12 @@ window.Arrow = (function (window, document, undefined) {
             M[2] = tem[1];
         }
         M = M ? [M[1], M[2]] : [N, navigator.appVersion, '-?'];
-        browser = M[0].toLowerCase();
+        browser = (M[0].toLowerCase()=="netscape")?
+			"IE11":
+			(ua.toLowerCase().indexOf('edge')!=-1)?
+				"edge":
+				M[0].toLowerCase();
+		
         browserVersion = parseInt(M[1], 10);
     })();
 
@@ -185,6 +190,7 @@ window.Arrow = (function (window, document, undefined) {
         node.style.left = '67%';
     }
 
+
     /**
      * Firefox 20+ styles, 20+ is when new download manager was introduced.
      *
@@ -198,6 +204,8 @@ window.Arrow = (function (window, document, undefined) {
         node.style.transform = 'rotateX(180deg) rotateY(180deg)';
         node.style.MozTransform = 'rotateX(180deg) rotateY(180deg)';
     }
+	
+	
 
     /**
      * Chrome's a simple one
@@ -208,8 +216,22 @@ window.Arrow = (function (window, document, undefined) {
      * @private
      */
     function _applyStyleWebkit(node) {
-        node.style.bottom = '0px';
+        node.style.bottom = '50px'; 
         node.style.left = '20px';
+    }
+	
+    /**
+     * Safari
+     *
+     * @method _applyStyleSafari
+     * @param node
+     * @private
+     */
+    function _applyStyleSafari(node) {
+        node.style.top = '0px';
+		node.style.right = '80px';
+		node.style.transform = 'rotateX(180deg) rotateY(180deg)';
+		node.style.webkitTransform = 'rotateX(180deg) rotateY(180deg)';
     }
 
     /**
@@ -230,8 +252,12 @@ window.Arrow = (function (window, document, undefined) {
             } else if ((browserVersion === 9) || (browserVersion === 10)) {
                 _applyStyleMs(node);
             }
-        } else if (browser === 'chrome') {
+        } else if (browser === 'chrome' || browser === 'opera' ) {
             _applyStyleWebkit(node);
+        } else if (browser === 'safari') {
+            _applyStyleSafari(node);
+		} else if (browser === 'IE11' || browser === 'edge') {
+            _applyStyleMs(node);
         } else if (browser === 'firefox') {
             //New download manager with arrow introducted in version 20
             if (browserVersion >= 20) {
