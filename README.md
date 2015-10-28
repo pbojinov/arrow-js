@@ -8,20 +8,20 @@ Arrow is a small JavaScript library for displaying a arrow pointing to the brows
 Include the javascript in your HTML
 
 ```html
-<script type="text/javascript" src="arrow.js">
+<script type="text/javascript" src="bower_components/ArrowJS/src/js/arrow.js">
 ```
 
 Or use the minified version
 
 ```html
-<script type="text/javascript" src="arrow-0.1.6.min.js">
+<script type="text/javascript" src="bower_components/ArrowJS/dist/arrow-0.1.7.min.js">
 ```
 
 ### Installing with Bower
 
 Bower requires [Node](http://nodejs.org/) and [npm](http://npmjs.org/). 
 
-    bower install arrow-js
+    bower install arrow-js --save
 
 ### How to use
 
@@ -50,7 +50,7 @@ Arrow._browserVersion
 
 ### Browser Support
 
-Chrome 4+, Firefox 3.5+, IE 8+
+Chrome 4+, Firefox 3.5+, IE 8+, Edge (Windows 10), Safari
 
 * The Firefox download manager was introduced in version 23 so the arrow will point in the top right.
 
@@ -91,7 +91,6 @@ Safari
 ![Safari](http://i.imgur.com/3zGlG50.png)
 	
 
-
 ### Library Size
 
 Original: 12482 bytes.
@@ -106,7 +105,7 @@ Minified: 4547 bytes.
 
 The MIT License (MIT)
 
-Copyright (c) 2013 Perion Inc.
+Copyright (c) 2015 Petar Bojinov
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
