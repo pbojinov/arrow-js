@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Arrow-js by pbojinov</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Arrow-js</h1>
+      <h2 class="project-tagline">Arrow is a small JavaScript library for displaying an arrow pointing to the browser download location</h2>
+      <a href="https://github.com/pbojinov/arrow-js" class="btn">View on GitHub</a>
+      <a href="https://github.com/pbojinov/arrow-js/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/pbojinov/arrow-js/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="" class="anchor" href="#" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><img src="http://i.imgur.com/rZSWaEl.png" alt="Arrow.js">
+</h1>
+
+<p>Arrow is a small JavaScript library for displaying a arrow pointing to the browser download location. Perfect for pointing at that new file you downloaded!</p>
+
+<h3>
+<a id="get-started" class="anchor" href="#get-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get Started</h3>
+
+<p>Include the javascript in your HTML</p>
+
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>bower_components/ArrowJS/src/js/arrow.js<span class="pl-pds">"</span></span>&gt;</span></pre></div>
+
+<p>Or use the minified version</p>
+
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>bower_components/ArrowJS/dist/arrow-0.1.7.min.js<span class="pl-pds">"</span></span>&gt;</span></pre></div>
+
+<h3>
+<a id="installing-with-bower" class="anchor" href="#installing-with-bower" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing with Bower</h3>
+
+<p>Bower requires <a href="http://nodejs.org/">Node</a> and <a href="http://npmjs.org/">npm</a>. </p>
+
+<pre><code>bower install arrow-js --save
+</code></pre>
+
+<h3>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use</h3>
+
+<h4>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h4>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">//Display the Arrow for 5 seconds</span>
+<span class="pl-c">//</span>
+<span class="pl-c">//@param milliseconds {integer} Show the arrow for this many milliseconds then fade</span>
+<span class="pl-c">//out. Defaults to 6000 milliseconds (6 seconds)</span>
+<span class="pl-smi">Arrow</span>.<span class="pl-en">show</span>(<span class="pl-c1">5000</span>);</pre></div>
+
+<h4>
+<a id="properties" class="anchor" href="#properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties</h4>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">//Get Arrow.js Version</span>
+<span class="pl-smi">Arrow</span>.<span class="pl-smi">_version</span>;
+
+<span class="pl-c">//Get Current Browser</span>
+<span class="pl-smi">Arrow</span>.<span class="pl-smi">_browser</span>;
+
+<span class="pl-c">//Get Current Browser Version</span>
+<span class="pl-smi">Arrow</span>.<span class="pl-smi">_browserVersion</span> </pre></div>
+
+<h3>
+<a id="browser-support" class="anchor" href="#browser-support" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Browser Support</h3>
+
+<p>Chrome 4+, Firefox 3.5+, IE 8+, Edge (Windows 10), Safari</p>
+
+<ul>
+<li><p>The Firefox download manager was introduced in version 23 so the arrow will point in the top right.</p></li>
+<li><p>Chrome downloads start at the bottom left of the page.</p></li>
+<li><p>IE 9/10 downloads start in the bottom center.</p></li>
+<li><p>IE 8 downloads come up in the center of the screen unless the security warnings comes up at the top of the page. So the arrow points at the top left.</p></li>
+</ul>
+
+<h3>
+<a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screenshots</h3>
+
+<p>Chrome</p>
+
+<p><img src="http://i.imgur.com/1zW8EYG.png" alt="Chrome"></p>
+
+<p>Firefox</p>
+
+<p><img src="http://i.imgur.com/6EgcJId.png" alt="Firefox"></p>
+
+<p>IE 9/10 Wide Screen</p>
+
+<p><img src="http://i.imgur.com/WyDd3j4.png" alt="IE 9/10 Wide"></p>
+
+<p>IE 9/10 Narrow Screen</p>
+
+<p><img src="http://i.imgur.com/fztArJ3.png" alt="IE 9/10 Narrow"></p>
+
+<p>IE 11</p>
+
+<p><img src="http://i.imgur.com/7CusGBs.jpg" alt="IE11"></p>
+
+<p>EDGE</p>
+
+<p><img src="http://i.imgur.com/gEOk2ql.jpg" alt="EDGE"></p>
+
+<p>Safari</p>
+
+<p><img src="http://i.imgur.com/3zGlG50.png" alt="Safari"></p>
+
+<h3>
+<a id="library-size" class="anchor" href="#library-size" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Library Size</h3>
+
+<p>Original: 12482 bytes.</p>
+
+<p>Minified: 4547 bytes.</p>
+
+<h3>
+<a id="maintainer" class="anchor" href="#maintainer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Maintainer</h3>
+
+<p><a href="https://github.com/pbojinov">Petar Bojinov</a></p>
+
+<h3>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h3>
+
+<p>The MIT License (MIT)</p>
+
+<p>Copyright (c) 2015 Petar Bojinov</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/pbojinov/arrow-js">Arrow-js</a> is maintained by <a href="https://github.com/pbojinov">pbojinov</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
