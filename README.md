@@ -1,7 +1,7 @@
 ![Arrow.js](http://i.imgur.com/rZSWaEl.png)
 ===
 
-Arrow is a small JavaScript library for displaying a arrow pointing to the browser download location. Perfect for pointing at that new file you downloaded!
+Arrow.js is a tiny library (4.5kb gzipped) for displaying an arrow pointing to the browser download location. Perfect for pointing at that new file you downloaded!
 
 ### Get Started
 
