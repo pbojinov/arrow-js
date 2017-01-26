@@ -1,11 +1,11 @@
 {
-  "name": "ArrowJS",
-  "version": "0.1.7",
-  "title": "arrow",
-  "description": "Arrow is a small JavaScript library for displaying a cross-browser downloads arrow",
+  "name": "arrow-js",
+  "version": "0.1.8",
+  "title": "arrow-js",
+  "description": "Arrow is a small JavaScript library for displaying a cross-browser downloads arrow.",
   "author": {
     "name": "Petar Bojinov",
-    "url": "http://petarbojinov.com",
+    "url": "https://petarbojinov.com",
     "email": "petarbojinov@gmail.com"
   },
   "repository": {
@@ -13,9 +13,10 @@
     "url": "https://github.com/pbojinov/arrow-js.git"
   },
   "keywords": [
-    "vpl",
-    "javascript",
-    "library"
+    "download",
+    "arrow",
+    "cross-browser",
+    "micro library"
   ],
   "bugs": {
     "url": "https://github.com/pbojinov/arrow-js/issues"
