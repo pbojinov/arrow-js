@@ -14,7 +14,7 @@ Include the javascript in your HTML
 Or use the minified version
 
 ```html
-<script type="text/javascript" src="bower_components/ArrowJS/dist/arrow-0.1.7.min.js">
+<script type="text/javascript" src="bower_components/ArrowJS/dist/arrow-0.1.9.min.js">
 ```
 
 ### Installing with Bower
@@ -105,7 +105,7 @@ Minified: 4547 bytes.
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Petar Bojinov
+Copyright (c) 2017 Petar Bojinov
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
