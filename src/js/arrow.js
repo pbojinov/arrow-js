@@ -15,7 +15,8 @@ window.Arrow = (function (window, document, undefined) {
         browser = '',
         browserVersion = 0,
         visibleHeight = 0,
-        visibleWidth = 0;
+        visibleWidth = 0,
+        imageUrl = 'https://i.imgur.com/aMwoyfN.png';
 
     /**
      * Other available arrows to use. Planning on adding more colors
@@ -128,7 +129,7 @@ window.Arrow = (function (window, document, undefined) {
         node.style.height = '309px';
         node.style.width = '186px';
         node.style.opacity = 0;
-        node.style.backgroundImage = 'url(https://i.imgur.com/aMwoyfN.png)';
+        node.style.backgroundImage = 'url(' + imageUrl + ')';
         node.style.backgroundRepeat = 'no-repeat';
         node.style.backgroundPositionX = '0';
         node.style.backgroundPositionY = '0';
@@ -147,7 +148,7 @@ window.Arrow = (function (window, document, undefined) {
 
         // Only one filter style can exist so we concatenate them to one line
         var opacity = 'progid:DXImageTransform.Microsoft.Alpha(opacity=0) ',
-            imgSrc = 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://i.imgur.com/aMwoyfN.png", sizingMethod="scale") ',
+            imgSrc = 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="' + imageUrl + '", sizingMethod="scale") ',
             rotation = 'progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=1.2246063538223773e-16, M21=-1.2246063538223773e-16, M22=-1, SizingMethod="auto expand") ';
 
         node.style.filter = opacity + imgSrc + rotation;
@@ -335,6 +336,14 @@ window.Arrow = (function (window, document, undefined) {
         }
     }
 
+    function _removeWindowEvent(event, functionReference) {
+        if (window.removeEventListener) {
+            window.removeEventListener(event, functionReference, false);
+        } else if (window.attachEvent) {
+            window.detachEvent(event, functionReference);
+        }
+    }
+
     _initArrow(); //our constructor, fired when library loads
 
     /**
@@ -382,6 +391,26 @@ window.Arrow = (function (window, document, undefined) {
         }
     }
 
+    function _setImage(url) {
+        if (!url || imageUrl == url) {
+            return;
+        }
+
+        _destroy();
+
+        imageUrl = url;
+        _initArrow();
+    }
+
+    function _destroy() {
+
+        _removeWindowEvent('resize', _calculateArrowPosition);
+        _removeWindowEvent('scroll', _calculateArrowPosition);
+
+        var arrow = document.getElementById('arrow-' + browser);
+        arrow.parentNode.removeChild(arrow);
+    }
+
     /**
      * Public API
      */
@@ -394,8 +423,9 @@ window.Arrow = (function (window, document, undefined) {
      * @param seconds {int} optional parameter, length in seconds to fade out after
      * @public
      */
-    function show(seconds) {
+    function show(seconds, arrowimageUrl) {
         if (_isExist()) {
+            _setImage(arrowimageUrl);
             _increaseOpacity(seconds);
         } else {
             throw 'Invalid usage: arrow does not exist';
