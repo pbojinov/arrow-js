@@ -336,6 +336,14 @@ window.Arrow = (function (window, document, undefined) {
         }
     }
 
+    function _removeWindowEvent(event, functionReference) {
+        if (window.removeEventListener) {
+            window.removeEventListener(event, functionReference, false);
+        } else if (window.attachEvent) {
+            window.detachEvent(event, functionReference);
+        }
+    }
+
     _initArrow(); //our constructor, fired when library loads
 
     /**
@@ -383,6 +391,26 @@ window.Arrow = (function (window, document, undefined) {
         }
     }
 
+    function _setImage(url) {
+        if (!url || imageUrl == url) {
+            return;
+        }
+
+        _destroy();
+
+        imageUrl = url;
+        _initArrow();
+    }
+
+    function _destroy() {
+
+        _removeWindowEvent('resize', _calculateArrowPosition);
+        _removeWindowEvent('scroll', _calculateArrowPosition);
+
+        var arrow = document.getElementById('arrow-' + browser);
+        arrow.parentNode.removeChild(arrow);
+    }
+
     /**
      * Public API
      */
@@ -395,8 +423,9 @@ window.Arrow = (function (window, document, undefined) {
      * @param seconds {int} optional parameter, length in seconds to fade out after
      * @public
      */
-    function show(seconds) {
+    function show(seconds, arrowimageUrl) {
         if (_isExist()) {
+            _setImage(arrowimageUrl);
             _increaseOpacity(seconds);
         } else {
             throw 'Invalid usage: arrow does not exist';
